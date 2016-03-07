@@ -11,15 +11,17 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-<<<<<<< HEAD
-    'modules' => [],
-=======
     'modules' => [
         'users' => [
             'class' => 'app\modules\users\Registration',
         ],
+        'tickets' => [
+            'class' => 'backend\modules\tickets\Tickets',
+        ],
+        'case' => [
+            'class' => 'backend\modules\case\Case',
+        ],
     ],
->>>>>>> ae2585444ba34ac8924cabf2a595c2cc64973e68
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',

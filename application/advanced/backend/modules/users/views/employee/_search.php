@@ -25,6 +25,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'middlename') ?>
 
+
+
     <?php // echo $form->field($model, 'position_id') ?>
 
     <div class="form-group">
