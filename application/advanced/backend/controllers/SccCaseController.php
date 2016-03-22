@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * SccCaseController implements the CRUD actions for SccCase model.
  */
-class SccCaseController extends Controller
+class CaseController extends Controller
 {
     public function behaviors()
     {
