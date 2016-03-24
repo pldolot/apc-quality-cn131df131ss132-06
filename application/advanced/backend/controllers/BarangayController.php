@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\SccCase;
-use common\models\SccCaseSearch;
+use common\models\Barangay;
+use common\models\BarangaySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SccCaseController implements the CRUD actions for SccCase model.
+ * BarangayController implements the CRUD actions for Barangay model.
  */
-class SccCaseController extends Controller
+class BarangayController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +27,12 @@ class SccCaseController extends Controller
     }
 
     /**
-     * Lists all SccCase models.
+     * Lists all Barangay models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new SccCaseSearch();
+        $searchModel = new BarangaySearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class SccCaseController extends Controller
     }
 
     /**
-     * Displays a single SccCase model.
+     * Displays a single Barangay model.
      * @param integer $id
      * @return mixed
      */
@@ -54,16 +54,16 @@ class SccCaseController extends Controller
     }
 
     /**
-     * Creates a new SccCase model.
+     * Creates a new Barangay model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new SccCase();
+        $model = new Barangay();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->case_id]);
+            return $this->redirect(['view', 'id' => $model->barangay_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -72,7 +72,7 @@ class SccCaseController extends Controller
     }
 
     /**
-     * Updates an existing SccCase model.
+     * Updates an existing Barangay model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -82,7 +82,7 @@ class SccCaseController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->case_id]);
+            return $this->redirect(['view', 'id' => $model->barangay_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -91,7 +91,7 @@ class SccCaseController extends Controller
     }
 
     /**
-     * Deletes an existing SccCase model.
+     * Deletes an existing Barangay model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +104,15 @@ class SccCaseController extends Controller
     }
 
     /**
-     * Finds the SccCase model based on its primary key value.
+     * Finds the Barangay model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return SccCase the loaded model
+     * @return Barangay the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = SccCase::findOne($id)) !== null) {
+        if (($model = Barangay::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
