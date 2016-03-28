@@ -8,7 +8,7 @@ $this->title = 'My Yii Application';
 
   <ul class="nav nav-tabs" >
   <li role="presentation" class="active"><a href="#">Home</a></li>
-  <li role="presentation"><a href="#">Case</a></li>
+  <li role="presentation"><a href="http://localhost/softdev/backend/web/index.php?r=scc-case">Case</a></li>
   <li role="presentation"><a href="http://localhost/softdev/backend/web/index.php?r=employee">Employee</a></li>
   <li role="presentation"><a href="http://localhost/softdev/backend/web/index.php?r=position">Positions</a></li>
   <li role="presentation"><a href="http://localhost/softdev/backend/web/index.php?r=profile">BEI/BOC Profile</a></li>

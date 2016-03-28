@@ -18,7 +18,8 @@ class TicketStatusSearch extends TicketStatus
     public function rules()
     {
         return [
-            [['ticket_status_id', 'tstatus'], 'integer'],
+            [['ticket_status_id'], 'integer'],
+            [['status_name'], 'safe'],
         ];
     }
 
@@ -56,8 +57,9 @@ class TicketStatusSearch extends TicketStatus
 
         $query->andFilterWhere([
             'ticket_status_id' => $this->ticket_status_id,
-            'tstatus' => $this->tstatus,
         ]);
+
+        $query->andFilterWhere(['like', 'status_name', $this->status_name]);
 
         return $dataProvider;
     }

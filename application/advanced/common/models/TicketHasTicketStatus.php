@@ -7,13 +7,14 @@ use Yii;
 /**
  * This is the model class for table "ticket_has_ticket_status".
  *
- * @property integer $ticket_ticket_id
- * @property integer $ticket_status_ticket_status_id
- * @property integer $employee_employee_id
+ * @property integer $ticket_has_ticket_status_id
+ * @property integer $ticket_id
+ * @property integer $ticket_status_id
+ * @property integer $employee_id
  *
- * @property Employee $employeeEmployee
- * @property Ticket $ticketTicket
- * @property TicketStatus $ticketStatusTicketStatus
+ * @property Employee $employee
+ * @property Ticket $ticket
+ * @property TicketStatus $ticketStatus
  */
 class TicketHasTicketStatus extends \yii\db\ActiveRecord
 {
@@ -31,8 +32,8 @@ class TicketHasTicketStatus extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ticket_ticket_id', 'ticket_status_ticket_status_id', 'employee_employee_id'], 'required'],
-            [['ticket_ticket_id', 'ticket_status_ticket_status_id', 'employee_employee_id'], 'integer']
+            [['ticket_id', 'ticket_status_id', 'employee_id'], 'required'],
+            [['ticket_id', 'ticket_status_id', 'employee_id'], 'integer']
         ];
     }
 
@@ -42,33 +43,34 @@ class TicketHasTicketStatus extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ticket_ticket_id' => 'Ticket Ticket ID',
-            'ticket_status_ticket_status_id' => 'Ticket Status Ticket Status ID',
-            'employee_employee_id' => 'Employee Employee ID',
+            'ticket_has_ticket_status_id' => 'Ticket Has Ticket Status ID',
+            'ticket_id' => 'Ticket ID',
+            'ticket_status_id' => 'Ticket Status ID',
+            'employee_id' => 'Employee ID',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getEmployeeEmployee()
+    public function getEmployee()
     {
-        return $this->hasOne(Employee::className(), ['employee_id' => 'employee_employee_id']);
+        return $this->hasOne(Employee::className(), ['employee_id' => 'employee_id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTicketTicket()
+    public function getTicket()
     {
-        return $this->hasOne(Ticket::className(), ['ticket_id' => 'ticket_ticket_id']);
+        return $this->hasOne(Ticket::className(), ['ticket_id' => 'ticket_id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTicketStatusTicketStatus()
+    public function getTicketStatus()
     {
-        return $this->hasOne(TicketStatus::className(), ['ticket_status_id' => 'ticket_status_ticket_status_id']);
+        return $this->hasOne(TicketStatus::className(), ['ticket_status_id' => 'ticket_status_id']);
     }
 }

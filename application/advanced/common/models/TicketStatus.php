@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "ticket_status".
  *
  * @property integer $ticket_status_id
- * @property integer $tstatus
+ * @property string $status_name
  *
  * @property TicketHasTicketStatus[] $ticketHasTicketStatuses
  */
@@ -28,8 +28,8 @@ class TicketStatus extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['tstatus'], 'required'],
-            [['tstatus'], 'integer']
+            [['status_name'], 'required'],
+            [['status_name'], 'string', 'max' => 255]
         ];
     }
 
@@ -40,7 +40,7 @@ class TicketStatus extends \yii\db\ActiveRecord
     {
         return [
             'ticket_status_id' => 'Ticket Status ID',
-            'tstatus' => 'Tstatus',
+            'status_name' => 'Status Name',
         ];
     }
 

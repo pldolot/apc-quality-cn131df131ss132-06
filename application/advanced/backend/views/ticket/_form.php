@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use common\models\SccCase;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Ticket */
@@ -16,7 +18,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 't_date_time')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'case_id')->textInput() ?>
+    
+    <?php
+
+		$case=SccCase::find()->all();
+
+		$listData=ArrayHelper::map($case,'case_id','casenumber');
+
+		echo $form->field($model, 'case_id')->dropDownList($listData,['prompt'=>'Select Case Number']);
+
+	?>
 
     <?= $form->field($model, 'ticket_note')->textarea(['rows' => 6]) ?>
 

@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use common\models\IslandGroup;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Region */
@@ -14,7 +16,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'region_name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'island_id')->textInput() ?>
+    
+
+    <?php
+    	$islandgroup=IslandGroup::find()->all();
+
+    	$listData=ArrayHelper::map($islandgroup,'island_id','island_name');
+    	echo $form->field($model, 'island_id')->dropDownList($listData,['prompt'=>'Select Island where you belong']);
+
+
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
