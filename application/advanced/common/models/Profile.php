@@ -109,6 +109,6 @@ class Profile extends \yii\db\ActiveRecord
      */
     public function getSccCases()
     {
-        return $this->hasMany(SccCase::className(), ['profile_profile_id' => 'profile_id']);
+        return $this->hasMany(SccCase::className(), ['profile_id' => 'profile_id']);
     }
 }

@@ -2,9 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use common\models\Precinct;
-use common\models\Type;
-use yii\helpers\ArrayHelper;
+
 /* @var $this yii\web\View */
 /* @var $model common\models\Profile */
 /* @var $form yii\widgets\ActiveForm */
@@ -34,27 +32,11 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'esignature')->textInput(['maxlength' => true]) ?>
 
-   
-<?php
+    <?= $form->field($model, 'precinct_id')->textInput() ?>
 
-$precinct=Precinct::find()->all();
+    <?= $form->field($model, 'type_id')->textInput() ?>
 
-$listData=ArrayHelper::map($precinct,'precinct_id','precinctnumber');
-
-echo $form->field($model, 'precinct_id')->dropDownList($listData,['prompt'=>'Select Precicnt']);
-
-?>
-<?php
-
-$type=Type::find()->all();
-
-$listData=ArrayHelper::map($type,'type_id','type_name');
-
-echo $form->field($model, 'type_id')->dropDownList($listData,['prompt'=>'Select Profile Type']);
-
-?>
-
-   
+    <?= $form->field($model, 'employee_id')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
