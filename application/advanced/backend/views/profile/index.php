@@ -30,7 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'phonenumber',
             'profile_firstname',
             'profile_middlename',
+<<<<<<< HEAD
             // 'mothers_maiden_name',
+=======
+>>>>>>> 26e3ac6f4276a3253511c5cbf8f01df1e60cd140
             // 'profile_lastname',
             // 'profile_picture',
             // 'gsis',

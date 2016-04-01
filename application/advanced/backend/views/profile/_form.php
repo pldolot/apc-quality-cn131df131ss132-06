@@ -2,10 +2,13 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+<<<<<<< HEAD
 use common\models\Precinct;
 use yii\helpers\ArrayHelper;
 use common\models\Type;
 use common\models\Employee;
+=======
+>>>>>>> 26e3ac6f4276a3253511c5cbf8f01df1e60cd140
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Profile */
@@ -79,6 +82,7 @@ use common\models\Employee;
 
         $listData=ArrayHelper::map($precinct,'precinct_id','precinctnumber');
 
+<<<<<<< HEAD
         echo $form->field($model, 'precinct_id')->dropDownList($listData,['prompt'=>'Select Precinct', 'style' => 'width: 300px']);
 
 
@@ -101,6 +105,13 @@ use common\models\Employee;
 <div class="column4">
     <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
 </div>
+=======
+    <?= $form->field($model, 'precinct_id')->textInput() ?>
+
+    <?= $form->field($model, 'type_id')->textInput() ?>
+
+    <?= $form->field($model, 'employee_id')->textInput() ?>
+>>>>>>> 26e3ac6f4276a3253511c5cbf8f01df1e60cd140
 
 <div class="column3">
     <?= $form->field($model, 'gsis')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
