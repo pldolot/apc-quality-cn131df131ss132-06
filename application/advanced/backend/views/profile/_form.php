@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use common\models\Precinct;
 use common\models\Type;
+use common\models\Barangay;
 use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $model common\models\Profile */
@@ -34,25 +35,43 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'esignature')->textInput(['maxlength' => true]) ?>
 
-   
-<?php
 
-$precinct=Precinct::find()->all();
+    <?php
 
-$listData=ArrayHelper::map($precinct,'precinct_id','precinctnumber');
+        $precinct=Precinct::find()->all();
 
-echo $form->field($model, 'precinct_id')->dropDownList($listData,['prompt'=>'Select Precicnt']);
+        $listData=ArrayHelper::map($precinct,'precinct_id','precinctnumber');
 
-?>
-<?php
+        echo $form->field($model, 'precinct_id')->dropDownList($listData,['prompt'=>'Select Precicnt']);
 
-$type=Type::find()->all();
+    ?>
+    <?php
 
-$listData=ArrayHelper::map($type,'type_id','type_name');
+        $type=Type::find()->all();
 
-echo $form->field($model, 'type_id')->dropDownList($listData,['prompt'=>'Select Profile Type']);
+        $listData=ArrayHelper::map($type,'type_id','type_name');
 
-?>
+        echo $form->field($model, 'type_id')->dropDownList($listData,['prompt'=>'Select Profile Type']);
+
+    ?>
+    <!-- Create school -->
+
+    <?php $form = ActiveForm::begin(); ?>
+
+    <?= $form->field($school, 'school_name')->textInput(['maxlength' => true]) ?>
+    
+
+
+     <?php
+        $barangay=Barangay::find()->all();
+
+        $listData=ArrayHelper::map($barangay,'barangay_id','barangay');
+        echo $form->field($school, 'barangay_id')->dropDownList($listData,['prompt'=>'Select your Barangay']);
+
+
+    ?>
+
+    
 
    
 

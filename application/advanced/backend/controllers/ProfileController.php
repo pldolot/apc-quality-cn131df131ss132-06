@@ -4,6 +4,8 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Profile;
+use common\models\School;
+use common\models\Barangay;
 use common\models\ProfileSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -61,6 +63,9 @@ class ProfileController extends Controller
     public function actionCreate()
     {
         $model = new Profile();
+        $school = new School();
+        
+       
 
         if ($model->load(Yii::$app->request->post())) {
             $model->employee_id = 'employee_id';
@@ -69,6 +74,9 @@ class ProfileController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'school' => $school,
+
+                
             ]);
         }
     }
