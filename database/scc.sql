@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.12
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2016 at 03:56 AM
--- Server version: 5.6.25
--- PHP Version: 5.6.11
+-- Generation Time: Apr 01, 2016 at 05:39 PM
+-- Server version: 10.1.8-MariaDB
+-- PHP Version: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `auth_assignment`
 --
 
-CREATE TABLE IF NOT EXISTS `auth_assignment` (
+CREATE TABLE `auth_assignment` (
   `item_name` varchar(64) NOT NULL,
   `user_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `auth_assignment` (
 -- Table structure for table `auth_item`
 --
 
-CREATE TABLE IF NOT EXISTS `auth_item` (
+CREATE TABLE `auth_item` (
   `name` varchar(64) NOT NULL,
   `type` int(11) NOT NULL,
   `description` text,
@@ -61,7 +61,7 @@ INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `cr
 -- Table structure for table `auth_item_child`
 --
 
-CREATE TABLE IF NOT EXISTS `auth_item_child` (
+CREATE TABLE `auth_item_child` (
   `parent` varchar(64) NOT NULL,
   `child` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `auth_item_child` (
 -- Table structure for table `auth_rule`
 --
 
-CREATE TABLE IF NOT EXISTS `auth_rule` (
+CREATE TABLE `auth_rule` (
   `name` varchar(64) NOT NULL,
   `data` text,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -85,11 +85,18 @@ CREATE TABLE IF NOT EXISTS `auth_rule` (
 -- Table structure for table `barangay`
 --
 
-CREATE TABLE IF NOT EXISTS `barangay` (
+CREATE TABLE `barangay` (
   `barangay_id` int(11) NOT NULL,
   `barangay` varchar(100) DEFAULT NULL,
   `district_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `barangay`
+--
+
+INSERT INTO `barangay` (`barangay_id`, `barangay`, `district_id`) VALUES
+(1, 'Poblacion', 1);
 
 -- --------------------------------------------------------
 
@@ -97,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `barangay` (
 -- Table structure for table `case_has_case_status`
 --
 
-CREATE TABLE IF NOT EXISTS `case_has_case_status` (
+CREATE TABLE `case_has_case_status` (
   `case_has_case_status` int(11) NOT NULL,
   `case_id` int(11) NOT NULL,
   `case_status_id` int(11) NOT NULL,
@@ -111,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `case_has_case_status` (
 -- Table structure for table `case_status`
 --
 
-CREATE TABLE IF NOT EXISTS `case_status` (
+CREATE TABLE `case_status` (
   `case_status_id` int(11) NOT NULL,
   `cstatus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -122,11 +129,18 @@ CREATE TABLE IF NOT EXISTS `case_status` (
 -- Table structure for table `district`
 --
 
-CREATE TABLE IF NOT EXISTS `district` (
+CREATE TABLE `district` (
   `district_id` int(11) NOT NULL,
   `district_name` varchar(100) DEFAULT NULL,
   `municipality_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `district`
+--
+
+INSERT INTO `district` (`district_id`, `district_name`, `municipality_id`) VALUES
+(1, 'District 1', 1);
 
 -- --------------------------------------------------------
 
@@ -134,14 +148,14 @@ CREATE TABLE IF NOT EXISTS `district` (
 -- Table structure for table `employee`
 --
 
-CREATE TABLE IF NOT EXISTS `employee` (
+CREATE TABLE `employee` (
   `employee_id` int(11) NOT NULL,
   `id_number` varchar(15) NOT NULL,
   `firstname` varchar(45) DEFAULT NULL,
   `lastname` varchar(45) DEFAULT NULL,
   `middlename` varchar(45) DEFAULT NULL,
   `position_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `employee`
@@ -161,10 +175,10 @@ INSERT INTO `employee` (`employee_id`, `id_number`, `firstname`, `lastname`, `mi
 -- Table structure for table `island_group`
 --
 
-CREATE TABLE IF NOT EXISTS `island_group` (
+CREATE TABLE `island_group` (
   `island_id` int(11) NOT NULL,
   `island_name` varchar(45) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `island_group`
@@ -181,7 +195,7 @@ INSERT INTO `island_group` (`island_id`, `island_name`) VALUES
 -- Table structure for table `migration`
 --
 
-CREATE TABLE IF NOT EXISTS `migration` (
+CREATE TABLE `migration` (
   `version` varchar(180) NOT NULL,
   `apply_time` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -200,11 +214,18 @@ INSERT INTO `migration` (`version`, `apply_time`) VALUES
 -- Table structure for table `municipal_city`
 --
 
-CREATE TABLE IF NOT EXISTS `municipal_city` (
+CREATE TABLE `municipal_city` (
   `municipality_id` int(11) NOT NULL,
   `municipality_name` varchar(100) DEFAULT NULL,
   `province_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `municipal_city`
+--
+
+INSERT INTO `municipal_city` (`municipality_id`, `municipality_name`, `province_id`) VALUES
+(1, 'Quezon', 1);
 
 -- --------------------------------------------------------
 
@@ -212,10 +233,10 @@ CREATE TABLE IF NOT EXISTS `municipal_city` (
 -- Table structure for table `position`
 --
 
-CREATE TABLE IF NOT EXISTS `position` (
+CREATE TABLE `position` (
   `position_id` int(11) NOT NULL,
   `position_name` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `position`
@@ -234,11 +255,18 @@ INSERT INTO `position` (`position_id`, `position_name`) VALUES
 -- Table structure for table `precinct`
 --
 
-CREATE TABLE IF NOT EXISTS `precinct` (
+CREATE TABLE `precinct` (
   `precinct_id` int(11) NOT NULL,
   `precinctnumber` varchar(45) DEFAULT NULL,
   `school_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `precinct`
+--
+
+INSERT INTO `precinct` (`precinct_id`, `precinctnumber`, `school_id`) VALUES
+(1, '32', 1);
 
 -- --------------------------------------------------------
 
@@ -246,12 +274,13 @@ CREATE TABLE IF NOT EXISTS `precinct` (
 -- Table structure for table `profile`
 --
 
-CREATE TABLE IF NOT EXISTS `profile` (
+CREATE TABLE `profile` (
   `profile_id` int(11) NOT NULL,
   `profilenumber` varchar(45) NOT NULL,
   `phonenumber` varchar(15) NOT NULL,
   `profile_firstname` varchar(45) DEFAULT NULL,
   `profile_middlename` varchar(45) DEFAULT NULL,
+  `mothers_maiden_name` varchar(45) NOT NULL,
   `profile_lastname` varchar(45) DEFAULT NULL,
   `profile_picture` blob,
   `gsis` varchar(45) DEFAULT NULL,
@@ -269,18 +298,19 @@ CREATE TABLE IF NOT EXISTS `profile` (
 -- Table structure for table `province`
 --
 
-CREATE TABLE IF NOT EXISTS `province` (
+CREATE TABLE `province` (
   `province_id` int(11) NOT NULL,
   `province_name` varchar(100) DEFAULT NULL,
   `region_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `province`
 --
 
 INSERT INTO `province` (`province_id`, `province_name`, `region_id`) VALUES
-(1, 'San Andres Quezon', 2);
+(1, 'San Andres Quezon', 2),
+(2, 'San Andres, Quezon', 2);
 
 -- --------------------------------------------------------
 
@@ -288,11 +318,11 @@ INSERT INTO `province` (`province_id`, `province_name`, `region_id`) VALUES
 -- Table structure for table `region`
 --
 
-CREATE TABLE IF NOT EXISTS `region` (
+CREATE TABLE `region` (
   `region_id` int(11) NOT NULL,
   `region_name` varchar(45) NOT NULL,
   `island_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `region`
@@ -300,7 +330,8 @@ CREATE TABLE IF NOT EXISTS `region` (
 
 INSERT INTO `region` (`region_id`, `region_name`, `island_id`) VALUES
 (1, 'NCR', 1),
-(2, 'Region IV-A', 1);
+(2, 'Region IV-A', 1),
+(3, 'Region 1', 1);
 
 -- --------------------------------------------------------
 
@@ -308,7 +339,7 @@ INSERT INTO `region` (`region_id`, `region_name`, `island_id`) VALUES
 -- Table structure for table `scc_case`
 --
 
-CREATE TABLE IF NOT EXISTS `scc_case` (
+CREATE TABLE `scc_case` (
   `case_id` int(11) NOT NULL,
   `casenumber` varchar(45) NOT NULL,
   `c_date_time` datetime(6) NOT NULL,
@@ -321,11 +352,18 @@ CREATE TABLE IF NOT EXISTS `scc_case` (
 -- Table structure for table `school`
 --
 
-CREATE TABLE IF NOT EXISTS `school` (
+CREATE TABLE `school` (
   `school_id` int(11) NOT NULL,
   `school_name` varchar(50) DEFAULT NULL,
   `barangay_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `school`
+--
+
+INSERT INTO `school` (`school_id`, `school_name`, `barangay_id`) VALUES
+(1, 'San Andres Central School', 1);
 
 -- --------------------------------------------------------
 
@@ -333,7 +371,7 @@ CREATE TABLE IF NOT EXISTS `school` (
 -- Table structure for table `ticket`
 --
 
-CREATE TABLE IF NOT EXISTS `ticket` (
+CREATE TABLE `ticket` (
   `ticket_id` int(11) NOT NULL,
   `ticketnumber` varchar(45) NOT NULL,
   `t_date_time` datetime(6) NOT NULL,
@@ -347,7 +385,7 @@ CREATE TABLE IF NOT EXISTS `ticket` (
 -- Table structure for table `ticket_has_ticket_status`
 --
 
-CREATE TABLE IF NOT EXISTS `ticket_has_ticket_status` (
+CREATE TABLE `ticket_has_ticket_status` (
   `ticket_has_ticket_status_id` int(11) NOT NULL,
   `ticket_id` int(11) NOT NULL,
   `ticket_status_id` int(11) NOT NULL,
@@ -360,7 +398,7 @@ CREATE TABLE IF NOT EXISTS `ticket_has_ticket_status` (
 -- Table structure for table `ticket_status`
 --
 
-CREATE TABLE IF NOT EXISTS `ticket_status` (
+CREATE TABLE `ticket_status` (
   `ticket_status_id` int(11) NOT NULL,
   `status_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -371,10 +409,10 @@ CREATE TABLE IF NOT EXISTS `ticket_status` (
 -- Table structure for table `type`
 --
 
-CREATE TABLE IF NOT EXISTS `type` (
+CREATE TABLE `type` (
   `type_id` int(11) NOT NULL,
   `type_name` varchar(45) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `type`
@@ -390,7 +428,7 @@ INSERT INTO `type` (`type_id`, `type_name`) VALUES
 -- Table structure for table `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `auth_key` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
@@ -400,14 +438,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `status` smallint(6) NOT NULL DEFAULT '10',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'mprivera', '7qgdbe-D8BPb92jF_2LJAzXsxTdaiox9', '$2y$13$iXVno1Y9Y2jV.wKhdI5SyeYNPtppBW3zQQuJHM0Kjg3RKzgsoNCw6', NULL, 'celticsmark13@yahoo.com', 10, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(1, 'mprivera', '7qgdbe-D8BPb92jF_2LJAzXsxTdaiox9', '$2y$13$iXVno1Y9Y2jV.wKhdI5SyeYNPtppBW3zQQuJHM0Kjg3RKzgsoNCw6', NULL, 'celticsmark13@yahoo.com', 10, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'kirving', 'RevBsYOVbls0mk2dcPZG_rEzrVtGVoNO', '$2y$13$gVxnhAggy60/lUUUQwOJ5OjvfCfrMIaxcvaMjFaiNiIzkm.B6HYfq', NULL, 'kirving@gmail.com', 10, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -615,7 +654,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `barangay`
 --
 ALTER TABLE `barangay`
-  MODIFY `barangay_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `barangay_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `case_has_case_status`
 --
@@ -630,32 +669,32 @@ ALTER TABLE `case_status`
 -- AUTO_INCREMENT for table `district`
 --
 ALTER TABLE `district`
-  MODIFY `district_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `district_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `island_group`
 --
 ALTER TABLE `island_group`
-  MODIFY `island_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `island_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `municipal_city`
 --
 ALTER TABLE `municipal_city`
-  MODIFY `municipality_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `municipality_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `position`
 --
 ALTER TABLE `position`
-  MODIFY `position_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `position_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `precinct`
 --
 ALTER TABLE `precinct`
-  MODIFY `precinct_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `precinct_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `profile`
 --
@@ -665,12 +704,12 @@ ALTER TABLE `profile`
 -- AUTO_INCREMENT for table `province`
 --
 ALTER TABLE `province`
-  MODIFY `province_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `province_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `region`
 --
 ALTER TABLE `region`
-  MODIFY `region_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `region_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `scc_case`
 --
@@ -680,7 +719,7 @@ ALTER TABLE `scc_case`
 -- AUTO_INCREMENT for table `school`
 --
 ALTER TABLE `school`
-  MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `ticket`
 --
@@ -700,12 +739,12 @@ ALTER TABLE `ticket_status`
 -- AUTO_INCREMENT for table `type`
 --
 ALTER TABLE `type`
-  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
