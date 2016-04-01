@@ -62,9 +62,7 @@ class ProfileController extends Controller
     {
         $model = new Profile();
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->employee_id = 'employee_id';
-            $model->save();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->profile_id]);
         } else {
             return $this->render('create', [
