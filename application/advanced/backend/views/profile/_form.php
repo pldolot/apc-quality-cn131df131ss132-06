@@ -2,13 +2,12 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-<<<<<<< HEAD
+
 use common\models\Precinct;
 use yii\helpers\ArrayHelper;
 use common\models\Type;
 use common\models\Employee;
-=======
->>>>>>> 26e3ac6f4276a3253511c5cbf8f01df1e60cd140
+
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Profile */
@@ -22,7 +21,7 @@ use common\models\Employee;
     <?php $form = ActiveForm::begin(); ?>
     <?= $form->field($model, 'profile_picture')->textInput() ?>
 
-    <?= $form->field($model, 'profilenumber')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
+    
 <style type="text/css">
     
     .column1{
@@ -30,8 +29,6 @@ use common\models\Employee;
         height:300px;
         position:absolute;
         text-align:left;
-        
-
         
         }
         .column2{
@@ -60,7 +57,7 @@ use common\models\Employee;
                 height:70px;
                 position:absolute;
                 margin-left: 550px;
-                margin-top: 250px;
+                margin-top: 325px;
                 text-align:left;
                 
                 
@@ -75,14 +72,28 @@ use common\models\Employee;
 </div>
 
 <div class="column2">
+    <?= $form->field($model, 'profilenumber')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
     <?= $form->field($model, 'phonenumber')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
+    <?= $form->field($model, 'gsis')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
+    <?= $form->field($model, 'sss')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
+    
+        
+</div>
+
+    
+
+
+<div class="column3">
+   
+    <?= $form->field($model, 'fingerprintid')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
+    <?= $form->field($model, 'esignature')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
     <?php
 
         $precinct=Precinct::find()->all();
 
         $listData=ArrayHelper::map($precinct,'precinct_id','precinctnumber');
 
-<<<<<<< HEAD
+
         echo $form->field($model, 'precinct_id')->dropDownList($listData,['prompt'=>'Select Precinct', 'style' => 'width: 300px']);
 
 
@@ -100,28 +111,13 @@ use common\models\Employee;
 
 
     ?>
-        
-</div>
-<div class="column4">
-    <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-</div>
-=======
-    <?= $form->field($model, 'precinct_id')->textInput() ?>
-
-    <?= $form->field($model, 'type_id')->textInput() ?>
-
-    <?= $form->field($model, 'employee_id')->textInput() ?>
->>>>>>> 26e3ac6f4276a3253511c5cbf8f01df1e60cd140
-
-<div class="column3">
-    <?= $form->field($model, 'gsis')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
-    <?= $form->field($model, 'sss')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
-    <?= $form->field($model, 'fingerprintid')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
-    <?= $form->field($model, 'esignature')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
 </div> 
    
     
 
     <?php ActiveForm::end(); ?>
 
+</div>
+<div class="column4">
+    <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
 </div>
