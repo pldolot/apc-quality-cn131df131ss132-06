@@ -25,6 +25,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'profile_middlename') ?>
 
+    <?php // echo $form->field($model, 'mothers_maiden_name') ?>
+
     <?php // echo $form->field($model, 'profile_lastname') ?>
 
     <?php // echo $form->field($model, 'profile_picture') ?>

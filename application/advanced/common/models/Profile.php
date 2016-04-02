@@ -12,6 +12,7 @@ use Yii;
  * @property string $phonenumber
  * @property string $profile_firstname
  * @property string $profile_middlename
+ * @property string $mothers_maiden_name
  * @property string $profile_lastname
  * @property resource $profile_picture
  * @property string $gsis
@@ -43,10 +44,10 @@ class Profile extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['profilenumber', 'phonenumber', 'fingerprintid', 'esignature', 'type_id', 'employee_id'], 'required'],
+            [['profilenumber', 'phonenumber', 'mothers_maiden_name', 'fingerprintid', 'esignature', 'type_id', 'employee_id'], 'required'],
             [['profile_picture'], 'string'],
             [['precinct_id', 'type_id', 'employee_id'], 'integer'],
-            [['profilenumber', 'profile_firstname', 'profile_middlename', 'profile_lastname', 'gsis', 'sss', 'fingerprintid', 'esignature'], 'string', 'max' => 45],
+            [['profilenumber', 'profile_firstname', 'profile_middlename', 'mothers_maiden_name', 'profile_lastname', 'gsis', 'sss', 'fingerprintid', 'esignature'], 'string', 'max' => 45],
             [['phonenumber'], 'string', 'max' => 15],
             [['profilenumber'], 'unique'],
             [['phonenumber'], 'unique'],
@@ -68,6 +69,7 @@ class Profile extends \yii\db\ActiveRecord
             'phonenumber' => 'Phonenumber',
             'profile_firstname' => 'Profile Firstname',
             'profile_middlename' => 'Profile Middlename',
+            'mothers_maiden_name' => 'Mothers Maiden Name',
             'profile_lastname' => 'Profile Lastname',
             'profile_picture' => 'Profile Picture',
             'gsis' => 'Gsis',
@@ -109,6 +111,6 @@ class Profile extends \yii\db\ActiveRecord
      */
     public function getSccCases()
     {
-        return $this->hasMany(SccCase::className(), ['profile_profile_id' => 'profile_id']);
+        return $this->hasMany(SccCase::className(), ['profile_id' => 'profile_id']);
     }
 }
