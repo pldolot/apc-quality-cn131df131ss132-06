@@ -7,18 +7,13 @@ $this->title = 'My Yii Application';
 <div class="site-index" style="margin-left:0px">
 
   <ul class="nav nav-tabs" >
-  <li role="presentation" class="active"><a href="#">Home</a></li>
-<<<<<<< HEAD
-  <li role="presentation"><a href="http://localhost:81/softdev/backend/web/index.php?r=scc-case">Case</a></li>
-  <li role="presentation"><a href="http://localhost:81/softdev/backend/web/index.php?r=employee">Employee</a></li>
-  <li role="presentation"><a href="http://localhost:81/softdev/backend/web/index.php?r=position">Positions</a></li>
-  <li role="presentation"><a href="http://localhost:81/softdev/backend/web/index.php?r=profile">BEI/BOC Profile</a></li>
-=======
-  <li role="presentation"><a href="http://localhost/application/advanced/backend/web/index.php?r=scc-case">Case</a></li>
-  <li role="presentation"><a href="http://localhost/application/advanced/backend/web/index.php?r=employee">Employee</a></li>
-  <li role="presentation"><a href="http://localhost/application/advanced/backend/web/index.php?r=position">Positions</a></li>
-  <li role="presentation"><a href="http://localhost/application/advanced/backend/web/index.php?r=profile">BEI/BOC Profile</a></li>
->>>>>>> 26e3ac6f4276a3253511c5cbf8f01df1e60cd140
+  <li role="presentation" class="active"><a href="http://localhost/softdev/backend/web/index.php">Home</a></li>
+
+  <li role="presentation"><a href="http://localhost/softdev/backend/web/index.php?r=scc-case">Case</a></li>
+  <li role="presentation"><a href="http://localhost/softdev/backend/web/index.php?r=employee">Employee</a></li>
+  <li role="presentation"><a href="http://localhost/softdev/backend/web/index.php?r=position">Positions</a></li>
+  <li role="presentation"><a href="http://localhost/softdev/backend/web/index.php?r=profile">BEI/BOC Profile</a></li>
+
 </ul>
 
 
