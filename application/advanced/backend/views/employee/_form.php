@@ -22,57 +22,54 @@ use yii\helpers\ArrayHelper;
         position:absolute;
         text-align:left;
     }
-        .column2{
-            width:400px;
-            height:300px;
-            position:absolute;
-            padding-left: 10px;
-            text-align:left;
-            margin-left:400px;
+    .column2{
+        width:400px;
+        height:300px;
+        position:absolute;
+        padding-left: 10px;
+        text-align:left;
+        margin-left:400px;
             
 
             
     }
-        .column3{
-                width:400px;
-                height:300px;
-                position:absolute;
-                padding-left: 10px;
-                text-align:left;
-                margin-left:825px;
-                margin-top:75px;
+    .column3{
+        width:400px;
+        height:300px;
+        position:absolute;
+        padding-left: 10px;
+        text-align:left;
+        margin-left:825px;
+        margin-top:75px;
                 
     }
-            .column4{
-            width:100px;
-            height:70px;
-            position:absolute;
-            margin-left:525px;
-            margin-top:200px;
-            text-align:left;
+    .column4{
+        width:100px;
+        height:70px;
+        position:absolute;
+        margin-left:525px;
+        margin-top:200px;
+        text-align:left;
         }
 </style>
 <div class="column1">
     <?= $form->field($model, 'id_number')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
     <?= $form->field($model, 'lastname')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
-    </div>
+</div>
 <div class="column2">
     <?php
 
-$positions=Position::find()->all();
+        $positions=Position::find()->all();
 
-$listData=ArrayHelper::map($positions,'position_id','position_name');
+        $listData=ArrayHelper::map($positions,'position_id','position_name');
 
-echo $form->field($model, 'position_id')->dropDownList($listData,['prompt'=>'Select Position', 'style' => 'width: 300px']);
+        echo $form->field($model, 'position_id')->dropDownList($listData,['prompt'=>'Select Position', 'style' => 'width: 300px']);
 
-?>
+    ?>
     <?= $form->field($model, 'firstname')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
-    </div>
+</div>
 <div class="column3">
     <?= $form->field($model, 'middlename')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
-    </div>
-<div class="column4">
-   
     </div>
 
     <div class="column4">
