@@ -3,10 +3,12 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
+
 use common\models\Precinct;
 use yii\helpers\ArrayHelper;
 use common\models\Type;
 use common\models\Employee;
+
 
 
 /* @var $this yii\web\View */
@@ -16,9 +18,8 @@ use common\models\Employee;
 
 <div class="profile-form">
 
-
-
     <?php $form = ActiveForm::begin(); ?>
+
     <?= $form->field($model, 'profile_picture')->textInput() ?>
 
     
@@ -87,33 +88,9 @@ use common\models\Employee;
    
     <?= $form->field($model, 'fingerprintid')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
     <?= $form->field($model, 'esignature')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
-    <?php
-
-        $precinct=Precinct::find()->all();
-
-        $listData=ArrayHelper::map($precinct,'precinct_id','precinctnumber');
-
-
-        echo $form->field($model, 'precinct_id')->dropDownList($listData,['prompt'=>'Select Precinct', 'style' => 'width: 300px']);
-
-
-    ?>
-
-
     
-    <?php
+</div>  
 
-        $employee=Employee::find()->all();
-
-        $listData=ArrayHelper::map($employee,'employee_id','firstname','lastname');
-
-        echo $form->field($model, 'employee_id')->dropDownList($listData,['prompt'=>'Select employee', 'style' => 'width: 300px']);
-
-
-    ?>
-</div> 
-   
-    
 
     <?php ActiveForm::end(); ?>
 
