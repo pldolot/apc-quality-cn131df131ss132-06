@@ -29,6 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'casenumber',
             'c_date_time',
             'profile_id',
+            'phonenumber',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

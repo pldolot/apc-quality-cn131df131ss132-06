@@ -15,6 +15,8 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
+    <?= $form->field($model, 'rule_id') ?>
+
     <?= $form->field($model, 'name') ?>
 
     <?= $form->field($model, 'data') ?>

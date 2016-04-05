@@ -7,18 +7,18 @@ use Yii;
 /**
  * This is the model class for table "auth_item".
  *
+ * @property integer $item_id
  * @property string $name
  * @property integer $type
  * @property string $description
- * @property string $rule_name
  * @property string $data
  * @property string $created_at
  * @property string $updated_at
+ * @property integer $rule_id
  *
  * @property AuthAssignment[] $authAssignments
- * @property AuthRule $ruleName
+ * @property AuthRule $rule
  * @property AuthItemChild[] $authItemChildren
- * @property AuthItemChild[] $authItemChildren0
  */
 class AuthItem extends \yii\db\ActiveRecord
 {
@@ -36,11 +36,11 @@ class AuthItem extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'type'], 'required'],
-            [['type'], 'integer'],
-            [['description', 'data'], 'string'],
+            [['type', 'rule_id'], 'required'],
+            [['type', 'rule_id'], 'integer'],
+            [['description'], 'string'],
             [['created_at', 'updated_at'], 'safe'],
-            [['name', 'rule_name'], 'string', 'max' => 64]
+            [['name', 'data'], 'string', 'max' => 45]
         ];
     }
 
@@ -50,13 +50,14 @@ class AuthItem extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+            'item_id' => 'Item ID',
             'name' => 'Name',
             'type' => 'Type',
             'description' => 'Description',
-            'rule_name' => 'Rule Name',
             'data' => 'Data',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
+            'rule_id' => 'Rule ID',
         ];
     }
 
@@ -65,15 +66,15 @@ class AuthItem extends \yii\db\ActiveRecord
      */
     public function getAuthAssignments()
     {
-        return $this->hasMany(AuthAssignment::className(), ['item_name' => 'name']);
+        return $this->hasMany(AuthAssignment::className(), ['item_id' => 'item_id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getRuleName()
+    public function getRule()
     {
-        return $this->hasOne(AuthRule::className(), ['name' => 'rule_name']);
+        return $this->hasOne(AuthRule::className(), ['rule_id' => 'rule_id']);
     }
 
     /**
@@ -81,14 +82,6 @@ class AuthItem extends \yii\db\ActiveRecord
      */
     public function getAuthItemChildren()
     {
-        return $this->hasMany(AuthItemChild::className(), ['parent' => 'name']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getAuthItemChildren0()
-    {
-        return $this->hasMany(AuthItemChild::className(), ['child' => 'name']);
+        return $this->hasMany(AuthItemChild::className(), ['item_id' => 'item_id']);
     }
 }

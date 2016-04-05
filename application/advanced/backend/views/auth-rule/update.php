@@ -7,7 +7,7 @@ use yii\helpers\Html;
 
 $this->title = 'Update Auth Rule: ' . ' ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Auth Rules', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->name]];
+$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->rule_id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="auth-rule-update">

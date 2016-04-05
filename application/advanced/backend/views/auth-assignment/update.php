@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\AuthAssignment */
 
-$this->title = 'Update Auth Assignment: ' . ' ' . $model->item_name;
+$this->title = 'Update Auth Assignment: ' . ' ' . $model->assignment_id;
 $this->params['breadcrumbs'][] = ['label' => 'Auth Assignments', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->item_name, 'url' => ['view', 'item_name' => $model->item_name, 'user_id' => $model->user_id]];
+$this->params['breadcrumbs'][] = ['label' => $model->assignment_id, 'url' => ['view', 'id' => $model->assignment_id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="auth-assignment-update">

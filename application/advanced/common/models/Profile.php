@@ -44,7 +44,7 @@ class Profile extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['profilenumber', 'phonenumber', 'mothers_maiden_name', 'fingerprintid', 'esignature', 'type_id', 'employee_id'], 'required'],
+            [['profilenumber', 'phonenumber', 'mothers_maiden_name', 'type_id', 'employee_id'], 'required'],
             [['profile_picture'], 'string'],
             [['precinct_id', 'type_id', 'employee_id'], 'integer'],
             [['profilenumber', 'profile_firstname', 'profile_middlename', 'mothers_maiden_name', 'profile_lastname', 'gsis', 'sss', 'fingerprintid', 'esignature'], 'string', 'max' => 45],

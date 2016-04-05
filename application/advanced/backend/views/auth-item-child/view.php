@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\AuthItemChild */
 
-$this->title = $model->parent;
+$this->title = $model->child_id;
 $this->params['breadcrumbs'][] = ['label' => 'Auth Item Children', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'parent' => $model->parent, 'child' => $model->child], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'parent' => $model->parent, 'child' => $model->child], [
+        <?= Html::a('Update', ['update', 'id' => $model->child_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->child_id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,8 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'parent',
-            'child',
+            'child_id',
+            'item_id',
         ],
     ]) ?>
 
