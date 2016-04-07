@@ -25,8 +25,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'profile_middlename') ?>
 
-    <?php // echo $form->field($model, 'mothers_maiden_name') ?>
-
     <?php // echo $form->field($model, 'profile_lastname') ?>
 
     <?php // echo $form->field($model, 'profile_picture') ?>
@@ -35,15 +33,13 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'sss') ?>
 
-    <?php // echo $form->field($model, 'fingerprintid') ?>
-
-    <?php // echo $form->field($model, 'esignature') ?>
-
     <?php // echo $form->field($model, 'precinct_id') ?>
 
     <?php // echo $form->field($model, 'type_id') ?>
 
     <?php // echo $form->field($model, 'employee_id') ?>
+
+    <?php // echo $form->field($model, 'mothers_maiden_name') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

@@ -40,7 +40,6 @@ class Position extends \yii\db\ActiveRecord
         return [
             'position_id' => 'Position ID',
             'position_name' => 'Position Name',
-            'position_id' => 'Position Name',
         ];
     }
 
