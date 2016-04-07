@@ -8,6 +8,7 @@ use common\models\Precinct;
 use yii\helpers\ArrayHelper;
 use common\models\Type;
 use common\models\Employee;
+use common\models\School;
 
 
 
@@ -89,12 +90,26 @@ use common\models\Employee;
     <?= $form->field($model, 'fingerprintid')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
     <?= $form->field($model, 'esignature')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
     
+    <?php
+
+        $precinct=Precinct::find()->all();
+
+        $listData=ArrayHelper::map($precinct,'precinct_id','precinctnumber');
+
+        echo $form->field($model, 'precinct_id')->dropDownList($listData,['prompt'=>'Select Precinct', 'style' => 'width: 300px']);
+
+    ?>
+
+
+
 </div>  
 
 
-    <?php ActiveForm::end(); ?>
+   
 
-</div>
 <div class="column4">
     <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+</div>
+ <?php ActiveForm::end(); ?>
+
 </div>

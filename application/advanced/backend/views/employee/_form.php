@@ -15,7 +15,7 @@ use yii\helpers\ArrayHelper;
 
     <?php $form = ActiveForm::begin(); ?>
 
-<style type="text/css">
+<style type ="text/css">
     .column1{
         width:400px;
         height:300px;
@@ -29,8 +29,6 @@ use yii\helpers\ArrayHelper;
         padding-left: 10px;
         text-align:left;
         margin-left:400px;
-            
-
             
     }
     .column3{
@@ -50,7 +48,7 @@ use yii\helpers\ArrayHelper;
         margin-left:525px;
         margin-top:200px;
         text-align:left;
-        }
+    }
 </style>
 <div class="column1">
     <?= $form->field($model, 'id_number')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
