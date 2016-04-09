@@ -3,6 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
+
+use common\models\Precinct;
 use common\models\Profile;
 use common\models\ProfileSearch;
 use yii\web\Controller;
@@ -61,12 +63,16 @@ class ProfileController extends Controller
     public function actionCreate()
     {
         $model = new Profile();
+        $island = new IslandGroup();
+        
+        
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->profile_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+               
             ]);
         }
     }

@@ -1,9 +1,10 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
 use common\models\Profile;
+use common\models\Category;
 use yii\helpers\ArrayHelper;
+use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\SccCase */
@@ -16,19 +17,28 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'casenumber')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'c_date_time')->textInput(['maxlength' => true]) ?>
-
    
 
-     <?php
+    
+    <?php
+    	$profile=Profile::find()->all();
 
-		$profile=Profile::find()->all();
+    	$listData=ArrayHelper::map($profile,'profile_id','profile_lastname');
+    	echo $form->field($model, 'profile_id')->dropDownList($listData,['prompt'=>'Select Profile']);
 
-		$listData=ArrayHelper::map($profile,'profile_id','phonenumber');
 
-		echo $form->field($model, 'profile_id')->dropDownList($listData,['prompt'=>'Select Phone Number']);
+    ?>
 
-	?>
+
+    
+    <?php
+    	$category=Category::find()->all();
+
+    	$listData=ArrayHelper::map($category,'category_id','category_name');
+    	echo $form->field($model, 'category_id')->dropDownList($listData,['prompt'=>'Select Category']);
+
+
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

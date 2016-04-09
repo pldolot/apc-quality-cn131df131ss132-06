@@ -11,9 +11,11 @@ use Yii;
  * @property string $casenumber
  * @property string $c_date_time
  * @property integer $profile_id
+ * @property integer $category_id
  *
  * @property CaseHasCaseStatus[] $caseHasCaseStatuses
  * @property Profile $profile
+ * @property Category $category
  * @property Ticket[] $tickets
  */
 class SccCase extends \yii\db\ActiveRecord
@@ -32,9 +34,9 @@ class SccCase extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['casenumber', 'c_date_time', 'profile_id'], 'required'],
+            [['casenumber', 'c_date_time', 'profile_id', 'category_id'], 'required'],
             [['c_date_time'], 'safe'],
-            [['profile_id'], 'integer'],
+            [['profile_id', 'category_id'], 'integer'],
             [['casenumber'], 'string', 'max' => 45],
             [['casenumber'], 'unique']
         ];
@@ -50,6 +52,7 @@ class SccCase extends \yii\db\ActiveRecord
             'casenumber' => 'Casenumber',
             'c_date_time' => 'C Date Time',
             'profile_id' => 'Profile ID',
+            'category_id' => 'Category ID',
         ];
     }
 
@@ -67,6 +70,14 @@ class SccCase extends \yii\db\ActiveRecord
     public function getProfile()
     {
         return $this->hasOne(Profile::className(), ['profile_id' => 'profile_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCategory()
+    {
+        return $this->hasOne(Category::className(), ['category_id' => 'category_id']);
     }
 
     /**

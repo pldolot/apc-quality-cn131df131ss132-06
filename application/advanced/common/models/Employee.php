@@ -13,6 +13,7 @@ use Yii;
  * @property string $lastname
  * @property string $middlename
  * @property integer $position_id
+ * @property integer $user_id
  *
  * @property CaseHasCaseStatus[] $caseHasCaseStatuses
  * @property Position $position
@@ -35,8 +36,8 @@ class Employee extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_number', 'position_id'], 'required'],
-            [['position_id'], 'integer'],
+            [['id_number', 'position_id', 'user_id'], 'required'],
+            [['position_id', 'user_id'], 'integer'],
             [['id_number'], 'string', 'max' => 15],
             [['firstname', 'lastname', 'middlename'], 'string', 'max' => 45],
             [['id_number'], 'unique']
@@ -55,6 +56,7 @@ class Employee extends \yii\db\ActiveRecord
             'lastname' => 'Lastname',
             'middlename' => 'Middlename',
             'position_id' => 'Position ID',
+            'user_id' => 'User ID',
         ];
     }
 
@@ -63,7 +65,7 @@ class Employee extends \yii\db\ActiveRecord
      */
     public function getCaseHasCaseStatuses()
     {
-        return $this->hasMany(CaseHasCaseStatus::className(), ['employee_employee_id' => 'employee_id']);
+        return $this->hasMany(CaseHasCaseStatus::className(), ['employee_id' => 'employee_id']);
     }
 
     /**
@@ -87,6 +89,6 @@ class Employee extends \yii\db\ActiveRecord
      */
     public function getTicketHasTicketStatuses()
     {
-        return $this->hasMany(TicketHasTicketStatus::className(), ['employee_employee_id' => 'employee_id']);
+        return $this->hasMany(TicketHasTicketStatus::className(), ['employee_id' => 'employee_id']);
     }
 }

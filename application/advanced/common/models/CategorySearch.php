@@ -5,12 +5,12 @@ namespace common\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\SccCase;
+use common\models\Category;
 
 /**
- * SccCaseSearch represents the model behind the search form about `common\models\SccCase`.
+ * CategorySearch represents the model behind the search form about `common\models\Category`.
  */
-class SccCaseSearch extends SccCase
+class CategorySearch extends Category
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class SccCaseSearch extends SccCase
     public function rules()
     {
         return [
-            [['case_id', 'profile_id', 'category_id'], 'integer'],
-            [['casenumber', 'c_date_time'], 'safe'],
+            [['category_id'], 'integer'],
+            [['category_name', 'subcategory_name', 'issue_type'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class SccCaseSearch extends SccCase
      */
     public function search($params)
     {
-        $query = SccCase::find();
+        $query = Category::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -56,13 +56,12 @@ class SccCaseSearch extends SccCase
         }
 
         $query->andFilterWhere([
-            'case_id' => $this->case_id,
-            'c_date_time' => $this->c_date_time,
-            'profile_id' => $this->profile_id,
             'category_id' => $this->category_id,
         ]);
 
-        $query->andFilterWhere(['like', 'casenumber', $this->casenumber]);
+        $query->andFilterWhere(['like', 'category_name', $this->category_name])
+            ->andFilterWhere(['like', 'subcategory_name', $this->subcategory_name])
+            ->andFilterWhere(['like', 'issue_type', $this->issue_type]);
 
         return $dataProvider;
     }

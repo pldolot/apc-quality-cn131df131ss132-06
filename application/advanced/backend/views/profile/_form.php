@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use common\models\School;
+use common\models\Barangay;
 use common\models\Precinct;
 use common\models\Type;
 use common\models\Employee;
@@ -108,10 +110,24 @@ use yii\helpers\ArrayHelper;
                         echo $form->field($model, 'employee_id')->dropDownList($listData,['prompt'=>'Select Position', 'style' => 'width: 300px']);
 
                     ?>
+
+                    <!-- Came from precinct table -->
+                    
+
+
+
+
+
+
+                     
+
+
                      <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
                 </div>
 
-       
+      
+
+        
     </div>
 
     <?php ActiveForm::end(); ?>

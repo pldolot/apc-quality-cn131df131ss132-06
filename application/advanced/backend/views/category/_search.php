@@ -4,30 +4,24 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\EmployeeSearch */
+/* @var $model common\models\CategorySearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="employee-search">
+<div class="category-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'employee_id') ?>
+    <?= $form->field($model, 'category_id') ?>
 
-    <?= $form->field($model, 'id_number') ?>
+    <?= $form->field($model, 'category_name') ?>
 
-    <?= $form->field($model, 'firstname') ?>
+    <?= $form->field($model, 'subcategory_name') ?>
 
-    <?= $form->field($model, 'lastname') ?>
-
-    <?= $form->field($model, 'middlename') ?>
-
-    <?php // echo $form->field($model, 'position_id') ?>
-
-    <?php // echo $form->field($model, 'user_id') ?>
+    <?= $form->field($model, 'issue_type') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

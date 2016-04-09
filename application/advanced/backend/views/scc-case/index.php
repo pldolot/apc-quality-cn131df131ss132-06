@@ -29,10 +29,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'casenumber',
             'c_date_time',
             'profile_id',
-            'phonenumber',
+            'category_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+
+    
 
 </div>
