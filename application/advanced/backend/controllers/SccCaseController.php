@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
+use common\models\Ticket;
 use common\models\SccCase;
 use common\models\SccCaseSearch;
 use yii\web\Controller;
@@ -50,6 +51,7 @@ class SccCaseController extends Controller
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
+            
         ]);
     }
 
@@ -61,14 +63,17 @@ class SccCaseController extends Controller
     public function actionCreate()
     {
         $model = new SccCase();
+        $ticket = new Ticket();
+
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->c_date_time = date('Y-m-d h:m:s');
+            $model->c_date_time = date('Y-m-d ');
             $model->save();
             return $this->redirect(['view', 'id' => $model->case_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'ticket' => $ticket,
             ]);
         }
     }

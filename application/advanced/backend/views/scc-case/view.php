@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\widgets\ActiveForm;
+use backend\views\ticket\create;
+
 
 /* @var $this yii\web\View */
 /* @var $model common\models\SccCase */
@@ -36,4 +39,8 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+   <p>
+       <a href= "http://localhost/softdev/backend/web/index.php?r=ticket%2Fcreate">Create Ticket </a>
+    </p>
+    
 </div>

@@ -16,7 +16,7 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'ticketnumber')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 't_date_time')->textInput(['maxlength' => true]) ?>
+   
 
     
     <?php

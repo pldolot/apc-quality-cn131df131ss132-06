@@ -62,7 +62,9 @@ class TicketController extends Controller
     {
         $model = new Ticket();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->t_date_time = date('Y-m-d h:m:s ');
+            $model->save();
             return $this->redirect(['view', 'id' => $model->ticket_id]);
         } else {
             return $this->render('create', [

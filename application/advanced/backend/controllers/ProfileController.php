@@ -72,6 +72,7 @@ class ProfileController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'island' => $island,
                
             ]);
         }
