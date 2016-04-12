@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\widgets\ActiveForm;
-use backend\views\ticket\create;
+
 
 
 /* @var $this yii\web\View */
@@ -26,7 +26,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+
+        <?= Html::a('Create Ticket', ['ticket/createwithid', 'id' => $model->ticket_id], ['class' => 'btn btn-success']) ?>
     </p>
+
 
     <?= DetailView::widget([
         'model' => $model,
@@ -39,8 +42,5 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
-   <p>
-       <a href= "http://localhost/softdev/backend/web/index.php?r=ticket%2Fcreate">Create Ticket </a>
-    </p>
-    
+   
 </div>

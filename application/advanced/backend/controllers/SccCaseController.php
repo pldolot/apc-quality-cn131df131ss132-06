@@ -67,7 +67,7 @@ class SccCaseController extends Controller
 
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->c_date_time = date('Y-m-d ');
+            $model->c_date_time = date('Y-m-d h:m:s ');
             $model->save();
             return $this->redirect(['view', 'id' => $model->case_id]);
         } else {
