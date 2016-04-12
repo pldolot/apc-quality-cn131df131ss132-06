@@ -2,22 +2,22 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'home';
 ?>
-<div class="site-index" style="margin-left:0px">
 
-  <ul class="nav nav-tabs" >
+<style type="text/css">
+	.welcome{
+		font-size: 100px;
+	}
+	.support{
+		font-size: 50px;
+	}
+</style>
 
-  <li role="presentation"><a href="http://localhost/softdev/backend/web/index.php?r=scc-case">Case</a></li>
-  <li role="presentation"><a href="http://localhost/softdev/backend/web/index.php?r=employee">Employee</a></li>
-  <li role="presentation"><a href="http://localhost/softdev/backend/web/index.php?r=position">Positions</a></li>
-  <li role="presentation"><a href="http://localhost/softdev/backend/web/index.php?r=profile">BEI/BOC Profile</a></li>
+<div class="welcome">
+<h1><center> Welcome to</h1>           
+</center></div>
 
-</ul>
-
-
-
-   
-            
-</div>
-
+<div class="support">
+<h1><center> Support and Command Center</h1>           
+</center></div>
