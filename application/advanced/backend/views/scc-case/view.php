@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model common\models\SccCase */
 
-$this->title = $model->case_id;
+$this->title = $model->casenumber;
 $this->params['breadcrumbs'][] = ['label' => 'Scc Cases', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
 
-        <?= Html::a('Create Ticket', ['ticket/createwithid', 'id' => $model->ticket_id], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Ticket', ['ticket/create', 'id' => $model->case_id], ['class' => 'btn btn-success']) ?>
     </p>
 
 
