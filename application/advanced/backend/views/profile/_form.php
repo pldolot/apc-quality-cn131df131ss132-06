@@ -43,6 +43,14 @@ use yii\helpers\ArrayHelper;
                 
                 
                 }
+                .column4{
+            width:400px;
+            height:300px;
+            position:absolute;
+            padding-left: 10px;
+            text-align:left;
+            margin-left:1060px;
+            margin-top: 240px;
                 
 
 </style>
@@ -122,9 +130,11 @@ use yii\helpers\ArrayHelper;
                      
 
 
-                     <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                     
                 </div>
-
+                <div class="column4">
+                <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                </div>
       
 
         

@@ -15,7 +15,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'casenumber')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'casenumber')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
 
    
 
@@ -24,7 +24,7 @@ use yii\widgets\ActiveForm;
     	$profile=Profile::find()->all();
 
     	$listData=ArrayHelper::map($profile,'profile_id','profile_lastname');
-    	echo $form->field($model, 'profile_id')->dropDownList($listData,['prompt'=>'Select Profile']);
+    	echo $form->field($model, 'profile_id')->dropDownList($listData,['prompt'=>'Select Profile', 'style' => 'width: 300px']);
 
 
     ?>
@@ -35,7 +35,7 @@ use yii\widgets\ActiveForm;
     	$category=Category::find()->all();
 
     	$listData=ArrayHelper::map($category,'category_id','category_name');
-    	echo $form->field($model, 'category_id')->dropDownList($listData,['prompt'=>'Select Category']);
+    	echo $form->field($model, 'category_id')->dropDownList($listData,['prompt'=>'Select Category', 'style' => 'width: 300px']);
 
 
     ?>
