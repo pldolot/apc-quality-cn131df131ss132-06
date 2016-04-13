@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'casenumber',
             'c_date_time',
             'profile_id',
-            'category_id',
+            'category_name',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -41,4 +41,7 @@ use yii\helpers\ArrayHelper;
 
     <?php ActiveForm::end(); ?>
 
-</div>
+
+    </div>
+    
+
