@@ -63,7 +63,7 @@ class ProfileController extends Controller
     public function actionCreate()
     {
         $model = new Profile();
-        $island = new IslandGroup();
+        
         
         
 
@@ -72,7 +72,7 @@ class ProfileController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'island' => $island,
+                
                
             ]);
         }
