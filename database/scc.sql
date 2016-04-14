@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2016 at 03:15 PM
+-- Generation Time: Apr 14, 2016 at 01:54 PM
 -- Server version: 5.6.25
 -- PHP Version: 5.6.11
 
@@ -161,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `category` (
 --
 
 INSERT INTO `category` (`category_id`, `category_name`, `subcategory_name`, `issue_type`) VALUES
-(10021, 'Software Issues', 'No boot', 'software');
+(1, 'hardware', 'bla', 'bla');
 
 -- --------------------------------------------------------
 
@@ -197,16 +197,17 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `lastname` varchar(45) DEFAULT NULL,
   `middlename` varchar(45) DEFAULT NULL,
   `position_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `sex` enum('Male','Female') NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`employee_id`, `id_number`, `firstname`, `lastname`, `middlename`, `position_id`, `user_id`) VALUES
-(6, '2013-100203', 'Mark Jerome', 'Rivera', 'Pepito', 6, 1),
-(7, '2013-100204', 'Patrick Vonn', 'Dolot', 'Labasbas', 8, 2);
+INSERT INTO `employee` (`employee_id`, `id_number`, `firstname`, `lastname`, `middlename`, `position_id`, `user_id`, `sex`) VALUES
+(6, '2013-100203', 'Mark Jerome', 'Rivera', 'Pepito', 6, 1, ''),
+(7, '2013-100204', 'Patrick Vonn', 'Dolot', 'Labasbas', 8, 2, '');
 
 -- --------------------------------------------------------
 
@@ -328,15 +329,16 @@ CREATE TABLE IF NOT EXISTS `profile` (
   `precinct_id` int(11) DEFAULT NULL,
   `type_id` int(11) NOT NULL,
   `employee_id` int(11) NOT NULL,
-  `mothers_maiden_name` varchar(45) NOT NULL
+  `mothers_maiden_name` varchar(45) NOT NULL,
+  `sex` enum('Male','Female') NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `profile`
 --
 
-INSERT INTO `profile` (`profile_id`, `profilenumber`, `phonenumber`, `profile_firstname`, `profile_middlename`, `profile_lastname`, `profile_picture`, `gsis`, `sss`, `precinct_id`, `type_id`, `employee_id`, `mothers_maiden_name`) VALUES
-(2, '100-001', '09078481333', 'Krashielle', 'Aurellana', 'Rosales', '', '0028387483', '', 1, 1, 7, 'Aurellana');
+INSERT INTO `profile` (`profile_id`, `profilenumber`, `phonenumber`, `profile_firstname`, `profile_middlename`, `profile_lastname`, `profile_picture`, `gsis`, `sss`, `precinct_id`, `type_id`, `employee_id`, `mothers_maiden_name`, `sex`) VALUES
+(2, '100-001', '09078481333', 'Krashielle', 'Aurellana', 'Rosales', '', '0028387483', '', 1, 1, 7, 'Aurellana', 'Male');
 
 -- --------------------------------------------------------
 
@@ -393,7 +395,14 @@ CREATE TABLE IF NOT EXISTS `scc_case` (
   `c_date_time` datetime(6) NOT NULL,
   `profile_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `scc_case`
+--
+
+INSERT INTO `scc_case` (`case_id`, `casenumber`, `c_date_time`, `profile_id`, `category_id`) VALUES
+(8, '0001', '2016-04-14 12:04:13.000000', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -428,7 +437,14 @@ CREATE TABLE IF NOT EXISTS `ticket` (
   `t_date_time` datetime(6) NOT NULL,
   `case_id` int(11) NOT NULL,
   `ticket_note` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ticket`
+--
+
+INSERT INTO `ticket` (`ticket_id`, `ticketnumber`, `t_date_time`, `case_id`, `ticket_note`) VALUES
+(2, '000111', '2016-04-14 12:04:28.000000', 8, 'No boot');
 
 -- --------------------------------------------------------
 
@@ -797,7 +813,7 @@ ALTER TABLE `region`
 -- AUTO_INCREMENT for table `scc_case`
 --
 ALTER TABLE `scc_case`
-  MODIFY `case_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `case_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `school`
 --
@@ -807,7 +823,7 @@ ALTER TABLE `school`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `ticket_has_ticket_status`
 --
