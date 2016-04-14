@@ -19,7 +19,7 @@ class ProfileSearch extends Profile
     {
         return [
             [['profile_id', 'precinct_id', 'type_id', 'employee_id'], 'integer'],
-            [['profilenumber', 'phonenumber', 'profile_firstname', 'profile_middlename', 'profile_lastname', 'profile_picture', 'gsis', 'sss', 'mothers_maiden_name'], 'safe'],
+            [['profilenumber', 'phonenumber', 'profile_firstname', 'profile_middlename', 'profile_lastname', 'profile_picture', 'gsis', 'sss', 'mothers_maiden_name', 'sex'], 'safe'],
         ];
     }
 
@@ -70,7 +70,8 @@ class ProfileSearch extends Profile
             ->andFilterWhere(['like', 'profile_picture', $this->profile_picture])
             ->andFilterWhere(['like', 'gsis', $this->gsis])
             ->andFilterWhere(['like', 'sss', $this->sss])
-            ->andFilterWhere(['like', 'mothers_maiden_name', $this->mothers_maiden_name]);
+            ->andFilterWhere(['like', 'mothers_maiden_name', $this->mothers_maiden_name])
+            ->andFilterWhere(['like', 'sex', $this->sex]);
 
         return $dataProvider;
     }

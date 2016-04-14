@@ -1,4 +1,5 @@
 <?php
+
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -23,22 +24,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            [
-                'attribute'=> 'position_id', 'value'=>'position.position_name',
 
-            ],
-
-            //'employee_id',
+            'employee_id',
             'id_number',
             'firstname',
             'lastname',
             'middlename',
-            'user_id',
-            
+            // 'position_id',
+            // 'user_id',
+            // 'sex',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 
-   
 </div>

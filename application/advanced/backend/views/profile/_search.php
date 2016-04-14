@@ -41,6 +41,8 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'mothers_maiden_name') ?>
 
+    <?php // echo $form->field($model, 'sex') ?>
+
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>

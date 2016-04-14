@@ -20,6 +20,7 @@ use Yii;
  * @property integer $type_id
  * @property integer $employee_id
  * @property string $mothers_maiden_name
+ * @property string $sex
  *
  * @property Employee $employee
  * @property Precinct $precinct
@@ -42,8 +43,8 @@ class Profile extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['profilenumber', 'phonenumber', 'type_id', 'employee_id', 'mothers_maiden_name'], 'required'],
-            [['profile_picture'], 'string'],
+            [['profilenumber', 'phonenumber', 'type_id', 'employee_id', 'mothers_maiden_name', 'sex'], 'required'],
+            [['profile_picture', 'sex'], 'string'],
             [['precinct_id', 'type_id', 'employee_id'], 'integer'],
             [['profilenumber', 'profile_firstname', 'profile_middlename', 'profile_lastname', 'gsis', 'sss', 'mothers_maiden_name'], 'string', 'max' => 45],
             [['phonenumber'], 'string', 'max' => 15],
@@ -73,6 +74,7 @@ class Profile extends \yii\db\ActiveRecord
             'type_id' => 'Type ID',
             'employee_id' => 'Employee ID',
             'mothers_maiden_name' => 'Mothers Maiden Name',
+            'sex' => 'Sex',
         ];
     }
 
