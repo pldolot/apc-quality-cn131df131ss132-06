@@ -52,7 +52,7 @@ use yii\helpers\ArrayHelper;
             margin-left:1060px;
             margin-top: 240px;
                 
-
+}
 </style>
 
 
