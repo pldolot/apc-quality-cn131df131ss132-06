@@ -1,10 +1,8 @@
 <?php
 
-namespace backend\controllers;
+namespace frontend\controllers;
 
 use Yii;
-use common\models\Ticket;
-use common\models\TicketSearch;
 use common\models\SccCase;
 use common\models\SccCaseSearch;
 use yii\web\Controller;
@@ -37,21 +35,10 @@ class SccCaseController extends Controller
         $searchModel = new SccCaseSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        $ticketsearchModel = new TicketSearch();
-        $ticketdataProvider = $ticketsearchModel->search(Yii::$app->request->queryParams);
-       
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-
-            'ticketsearchModel' => $ticketsearchModel,
-            'ticketdataProvider'=> $ticketdataProvider,
-
-            
-            
         ]);
-
-        
     }
 
     /**
@@ -61,16 +48,8 @@ class SccCaseController extends Controller
      */
     public function actionView($id)
     {
-        $ticket = new Ticket();
-        $ticketsearchModel = new TicketSearch();
-        $ticketdataProvider = $ticketsearchModel->search(Yii::$app->request->queryParams);
-
         return $this->render('view', [
             'model' => $this->findModel($id),
-            'ticketsearchModel' => $ticketsearchModel,
-            'ticketdataProvider'=> $ticketdataProvider,
-
-            
         ]);
     }
 
@@ -82,9 +61,8 @@ class SccCaseController extends Controller
     public function actionCreate()
     {
         $model = new SccCase();
-       
 
-        if ($model->load(Yii::$app->request->post())) {
+         if ($model->load(Yii::$app->request->post())) {
             $model->c_date_time = date('Y-m-d h:m:s ');
             $model->save();
             return $this->redirect(['view', 'id' => $model->case_id]);

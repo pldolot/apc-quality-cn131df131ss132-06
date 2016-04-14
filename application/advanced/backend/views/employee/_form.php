@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use common\models\Position;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Employee */
@@ -20,7 +22,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'middlename')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'position_id')->textInput() ?>
+    
+    <?php
+        $position=Position::find()->all();
+
+        $listData=ArrayHelper::map($position,'position_id','position_name');
+        echo $form->field($model, 'position_id')->dropDownList($listData,['prompt'=>'Select Position', 'style' => 'width: 300px']);
+
+
+    ?>
+
 
     <?= $form->field($model, 'user_id')->textInput() ?>
 
