@@ -34,12 +34,19 @@ class SccCaseController extends Controller
     public function actionIndex()
     {
         $searchModel = new SccCaseSearch();
+        // $ticketModel = new Ticket();
+        
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        // $ticketProvider = $ticketModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            // 'ticketModel' => $ticketModel,
+            // 'ticketProvider' => $ticketProvider
         ]);
+
+        
     }
 
     /**
@@ -49,9 +56,11 @@ class SccCaseController extends Controller
      */
     public function actionView($id)
     {
+        $ticket = new Ticket();
+
         return $this->render('view', [
             'model' => $this->findModel($id),
-            
+            'ticket' => $this->findModel($id)
         ]);
     }
 

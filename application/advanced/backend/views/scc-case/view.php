@@ -5,7 +5,6 @@ use yii\widgets\DetailView;
 use yii\widgets\ActiveForm;
 
 
-
 /* @var $this yii\web\View */
 /* @var $model common\models\SccCase */
 
@@ -33,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= DetailView::widget([
         'model' => $model,
-        'attributes' => [
+         'attributes' => [
             'case_id',
             'casenumber',
             'c_date_time',
@@ -41,6 +40,4 @@ $this->params['breadcrumbs'][] = $this->title;
             'category_id',
         ],
     ]) ?>
-
-   
 </div>
