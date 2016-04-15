@@ -75,26 +75,7 @@ use yii\helpers\ArrayHelper;
                <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     
 </div>
-    
 
-<<<<<<< HEAD
-=======
-    
-    <?php
-        $position=Position::find()->all();
-
-        $listData=ArrayHelper::map($position,'position_id','position_name');
-        echo $form->field($model, 'position_id')->dropDownList($listData,['prompt'=>'Select Position', 'style' => 'width: 300px']);
-
-
-    ?>
-
->>>>>>> 42b8617aaf809d085ac39e2f8f3add128607f9cb
-
-    
-    
-
-    
 
 
     <?php ActiveForm::end(); ?>

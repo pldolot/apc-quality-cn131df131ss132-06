@@ -15,7 +15,7 @@ use yii\helpers\ArrayHelper;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'casenumber')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'casenumber')->textInput(['maxlength' => true , 'style' => 'width:300px']) ?>
 
     
 
