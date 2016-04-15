@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\SccCase */
@@ -38,4 +39,5 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+   
 </div>
