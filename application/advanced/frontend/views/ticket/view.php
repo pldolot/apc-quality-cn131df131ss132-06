@@ -33,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             't_date_time',
             'case_id',
             'ticket_note:ntext',
+            'ticket_name',
         ],
     ]) ?>
 

@@ -38,21 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
    
-   <?= GridView::widget([
-        'ticketdataProvider'=> $ticketdataProvider,
-        //'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'ticket_id',
-            'ticketnumber',
-            't_date_time',
-           // 'case_id',
-            'ticket_note:ntext',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+   
    
 
      

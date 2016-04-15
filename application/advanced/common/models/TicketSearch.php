@@ -19,7 +19,7 @@ class TicketSearch extends Ticket
     {
         return [
             [['ticket_id', 'case_id'], 'integer'],
-            [['ticketnumber', 't_date_time', 'ticket_note'], 'safe'],
+            [['ticketnumber', 't_date_time', 'ticket_note', 'ticket_name'], 'safe'],
         ];
     }
 
@@ -62,7 +62,8 @@ class TicketSearch extends Ticket
         ]);
 
         $query->andFilterWhere(['like', 'ticketnumber', $this->ticketnumber])
-            ->andFilterWhere(['like', 'ticket_note', $this->ticket_note]);
+            ->andFilterWhere(['like', 'ticket_note', $this->ticket_note])
+            ->andFilterWhere(['like', 'ticket_name', $this->ticket_name]);
 
         return $dataProvider;
     }

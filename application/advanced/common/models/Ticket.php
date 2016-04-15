@@ -12,6 +12,7 @@ use Yii;
  * @property string $t_date_time
  * @property integer $case_id
  * @property string $ticket_note
+ * @property string $ticket_name
  *
  * @property SccCase $case
  * @property TicketHasTicketStatus[] $ticketHasTicketStatuses
@@ -32,11 +33,11 @@ class Ticket extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ticketnumber', 't_date_time', 'case_id'], 'required'],
+            [['ticketnumber', 't_date_time', 'case_id', 'ticket_name'], 'required'],
             [['t_date_time'], 'safe'],
             [['case_id'], 'integer'],
             [['ticket_note'], 'string'],
-            [['ticketnumber'], 'string', 'max' => 45],
+            [['ticketnumber', 'ticket_name'], 'string', 'max' => 45],
             [['ticketnumber'], 'unique']
         ];
     }
@@ -52,6 +53,7 @@ class Ticket extends \yii\db\ActiveRecord
             't_date_time' => 'T Date Time',
             'case_id' => 'Case ID',
             'ticket_note' => 'Ticket Note',
+            'ticket_name' => 'Ticket Name',
         ];
     }
 
@@ -68,6 +70,6 @@ class Ticket extends \yii\db\ActiveRecord
      */
     public function getTicketHasTicketStatuses()
     {
-        return $this->hasMany(TicketHasTicketStatus::className(), ['ticket_ticket_id' => 'ticket_id']);
+        return $this->hasMany(TicketHasTicketStatus::className(), ['ticket_id' => 'ticket_id']);
     }
 }

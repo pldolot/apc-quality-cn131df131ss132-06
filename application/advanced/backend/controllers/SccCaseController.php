@@ -61,14 +61,11 @@ class SccCaseController extends Controller
      */
     public function actionView($id)
     {
-        $ticket = new Ticket();
-        $ticketsearchModel = new TicketSearch();
-        $ticketdataProvider = $ticketsearchModel->search(Yii::$app->request->queryParams);
+       
 
         return $this->render('view', [
             'model' => $this->findModel($id),
-            'ticketsearchModel' => $ticketsearchModel,
-            'ticketdataProvider'=> $ticketdataProvider,
+            
 
             
         ]);

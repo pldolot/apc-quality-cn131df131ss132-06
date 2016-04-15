@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Ticket */
 
-$this->title = $model->ticket_id;
+$this->title = $model->ticket_name;
 $this->params['breadcrumbs'][] = ['label' => 'Tickets', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -28,11 +28,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'ticket_id',
+            //'ticket_id',
             'ticketnumber',
+            //'ticket_name',
             't_date_time',
             'case_id',
             'ticket_note:ntext',
+            
         ],
     ]) ?>
 

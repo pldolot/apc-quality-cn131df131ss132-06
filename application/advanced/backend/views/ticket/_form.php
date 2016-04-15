@@ -16,20 +16,24 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'ticketnumber')->textInput(['maxlength' => true]) ?>
 
-   
+    <?= $form->field($model, 'ticket_name')->textInput(['maxlength' => true]) ?>
 
     
-    <?php
 
-		$case=SccCase::find()->all();
+   
 
-		$listData=ArrayHelper::map($case,'case_id','casenumber');
+     <?php
+        $scccase=SccCase::find()->all();
 
-		echo $form->field($model, 'case_id')->dropDownList($listData,['prompt'=>'Select Case Number']);
+        $listData=ArrayHelper::map($scccase,'case_id','casenumber');
+        echo $form->field($model, 'case_id')->dropDownList($listData,['prompt'=>'Select Case']);
 
-	?>
+
+    ?>
 
     <?= $form->field($model, 'ticket_note')->textarea(['rows' => 6]) ?>
+
+    
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

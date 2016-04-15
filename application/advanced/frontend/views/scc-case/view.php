@@ -23,6 +23,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <?= Html::a('Create Ticket', ['ticket/create', 'id' => $model->case_id], ['class' => 'btn btn-success']) ?>
+    
     </p>
 
     <?= DetailView::widget([
