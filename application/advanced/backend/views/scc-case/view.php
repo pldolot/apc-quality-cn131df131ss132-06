@@ -1,8 +1,11 @@
 <?php
 
 use yii\helpers\Html;
+use common\models\Ticket;
 use yii\widgets\DetailView;
+use yii\grid\GridView;
 use yii\widgets\ActiveForm;
+use yii\data\ActiveDataProvider;
 
 
 /* @var $this yii\web\View */
@@ -34,4 +37,23 @@ $this->params['breadcrumbs'][] = $this->title;
             'category_id',
         ],
     ]) ?>
+   
+   <?= GridView::widget([
+        'ticketdataProvider'=> $ticketdataProvider,
+        //'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'ticket_id',
+            'ticketnumber',
+            't_date_time',
+           // 'case_id',
+            'ticket_note:ntext',
+
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
+   
+
+     
 </div>

@@ -4,20 +4,18 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model common\models\SccCase */
+/* @var $model common\models\TicketStatus */
 
-$this->title = 'Create Scc Case';
-$this->params['breadcrumbs'][] = ['label' => 'Scc Cases', 'url' => ['index']];
+$this->title = 'Create Ticket Status';
+$this->params['breadcrumbs'][] = ['label' => 'Ticket Statuses', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="scc-case-create">
+<div class="ticket-status-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,
-        
     ]) ?>
-     
 
 </div>

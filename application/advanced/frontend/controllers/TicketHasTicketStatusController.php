@@ -1,20 +1,18 @@
 <?php
 
-namespace backend\controllers;
+namespace frontend\controllers;
 
 use Yii;
-use common\models\Ticket;
-use common\models\TicketSearch;
-use common\models\SccCase;
-use common\models\SccCaseSearch;
+use common\models\TicketHasTicketStatus;
+use common\models\TicketHasTicketStatusSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SccCaseController implements the CRUD actions for SccCase model.
+ * TicketHasTicketStatusController implements the CRUD actions for TicketHasTicketStatus model.
  */
-class SccCaseController extends Controller
+class TicketHasTicketStatusController extends Controller
 {
     public function behaviors()
     {
@@ -29,75 +27,52 @@ class SccCaseController extends Controller
     }
 
     /**
-     * Lists all SccCase models.
+     * Lists all TicketHasTicketStatus models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new SccCaseSearch();
+        $searchModel = new TicketHasTicketStatusSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        $ticketsearchModel = new TicketSearch();
-        $ticketdataProvider = $ticketsearchModel->search(Yii::$app->request->queryParams);
-       
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-
-            'ticketsearchModel' => $ticketsearchModel,
-            'ticketdataProvider'=> $ticketdataProvider,
-
-            
-            
         ]);
-
-        
     }
 
     /**
-     * Displays a single SccCase model.
+     * Displays a single TicketHasTicketStatus model.
      * @param integer $id
      * @return mixed
      */
     public function actionView($id)
     {
-        $ticket = new Ticket();
-        $ticketsearchModel = new TicketSearch();
-        $ticketdataProvider = $ticketsearchModel->search(Yii::$app->request->queryParams);
-
         return $this->render('view', [
             'model' => $this->findModel($id),
-            'ticketsearchModel' => $ticketsearchModel,
-            'ticketdataProvider'=> $ticketdataProvider,
-
-            
         ]);
     }
 
     /**
-     * Creates a new SccCase model.
+     * Creates a new TicketHasTicketStatus model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new SccCase();
-       
+        $model = new TicketHasTicketStatus();
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->c_date_time = date('Y-m-d h:m:s ');
-            $model->save();
-            return $this->redirect(['view', 'id' => $model->case_id]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->ticket_has_ticket_status_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                
             ]);
         }
     }
 
     /**
-     * Updates an existing SccCase model.
+     * Updates an existing TicketHasTicketStatus model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -107,7 +82,7 @@ class SccCaseController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->case_id]);
+            return $this->redirect(['view', 'id' => $model->ticket_has_ticket_status_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -116,7 +91,7 @@ class SccCaseController extends Controller
     }
 
     /**
-     * Deletes an existing SccCase model.
+     * Deletes an existing TicketHasTicketStatus model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -129,15 +104,15 @@ class SccCaseController extends Controller
     }
 
     /**
-     * Finds the SccCase model based on its primary key value.
+     * Finds the TicketHasTicketStatus model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return SccCase the loaded model
+     * @return TicketHasTicketStatus the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = SccCase::findOne($id)) !== null) {
+        if (($model = TicketHasTicketStatus::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

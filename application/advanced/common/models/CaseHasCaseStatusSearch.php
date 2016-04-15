@@ -18,7 +18,7 @@ class CaseHasCaseStatusSearch extends CaseHasCaseStatus
     public function rules()
     {
         return [
-            [['case_has_case_status', 'case_id', 'case_status_id', 'employee_id'], 'integer'],
+            [['case_has_case_status_id', 'case_id', 'case_status_id', 'employee_id'], 'integer'],
             [['case_date_time'], 'safe'],
         ];
     }
@@ -56,7 +56,7 @@ class CaseHasCaseStatusSearch extends CaseHasCaseStatus
         }
 
         $query->andFilterWhere([
-            'case_has_case_status' => $this->case_has_case_status,
+            'case_has_case_status_id' => $this->case_has_case_status_id,
             'case_id' => $this->case_id,
             'case_status_id' => $this->case_status_id,
             'case_date_time' => $this->case_date_time,

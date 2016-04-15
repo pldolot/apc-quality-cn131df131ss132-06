@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'ticket_id',
             'ticketnumber',
             't_date_time',
-            'case_id',
+           // 'case_id',
             'ticket_note:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],
