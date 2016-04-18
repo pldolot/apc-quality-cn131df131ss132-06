@@ -16,13 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->profile_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->profile_id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
+    
+        <?= Html::a('Create Case', ['scc-case/create', 'id' => $model->profile_id], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= DetailView::widget([

@@ -1,11 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use common\models\Ticket;
 use yii\widgets\DetailView;
-use yii\grid\GridView;
-use yii\widgets\ActiveForm;
-use yii\data\ActiveDataProvider;
+
 
 
 /* @var $this yii\web\View */

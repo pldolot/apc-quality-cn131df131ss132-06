@@ -3,24 +3,22 @@
 namespace frontend\controllers;
 
 use Yii;
-use common\models\Profile;
-use common\models\ProfileSearch;
+use common\models\Employee;
+use common\models\EmployeeSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException;
 use yii\filters\AccessControl;
-
-
 /**
- * ProfileController implements the CRUD actions for Profile model.
+ * EmployeeController implements the CRUD actions for Employee model.
  */
-class ProfileController extends Controller
+class EmployeeController extends Controller
 {
     public function behaviors()
     {
         return [
-
+        
         'access'=> [
 
                 'class'=>AccessControl::classname(),
@@ -43,12 +41,12 @@ class ProfileController extends Controller
     }
 
     /**
-     * Lists all Profile models.
+     * Lists all Employee models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ProfileSearch();
+        $searchModel = new EmployeeSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -58,7 +56,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Displays a single Profile model.
+     * Displays a single Employee model.
      * @param integer $id
      * @return mixed
      */
@@ -70,19 +68,18 @@ class ProfileController extends Controller
     }
 
     /**
-     * Creates a new Profile model.
+     * Creates a new Employee model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+     public function actionCreate()
     {
-        
-        if(Yii::$app->user->can('create-profile')){
-
-            $model = new Profile();
+        if(Yii::$app->user->can( 'create-employee'))
+        {
+            $model = new Employee();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->profile_id]);
+            return $this->redirect(['view', 'id' => $model->employee_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -91,12 +88,11 @@ class ProfileController extends Controller
 
         }else{
             throw new ForbiddenHttpException;
+                }
         }
-        
-    }
 
     /**
-     * Updates an existing Profile model.
+     * Updates an existing Employee model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -106,7 +102,7 @@ class ProfileController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->profile_id]);
+            return $this->redirect(['view', 'id' => $model->employee_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -115,7 +111,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Deletes an existing Profile model.
+     * Deletes an existing Employee model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -128,15 +124,15 @@ class ProfileController extends Controller
     }
 
     /**
-     * Finds the Profile model based on its primary key value.
+     * Finds the Employee model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Profile the loaded model
+     * @return Employee the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Profile::findOne($id)) !== null) {
+        if (($model = Employee::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
