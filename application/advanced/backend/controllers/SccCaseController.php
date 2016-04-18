@@ -4,7 +4,6 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Ticket;
-use common\models\TicketSearch;
 use common\models\SccCase;
 use common\models\SccCaseSearch;
 use yii\web\Controller;
@@ -50,15 +49,13 @@ class SccCaseController extends Controller
         $searchModel = new SccCaseSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        $ticketsearchModel = new TicketSearch();
-        $ticketdataProvider = $ticketsearchModel->search(Yii::$app->request->queryParams);
+        
        
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
 
-            'ticketsearchModel' => $ticketsearchModel,
-            'ticketdataProvider'=> $ticketdataProvider,
+            
 
             
             
@@ -74,9 +71,11 @@ class SccCaseController extends Controller
      */
     public function actionView($id)
     {
-       
+        
+        
 
         return $this->render('view', [
+
             'model' => $this->findModel($id),
             
 

@@ -28,8 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'case_id',
             'casenumber',
             'c_date_time',
-            'profile_id',
-            'category_id',
+            //'profile_id',
+            'category.category_name',
         ],
     ]) ?>
 
