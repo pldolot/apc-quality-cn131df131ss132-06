@@ -18,8 +18,8 @@ class AuthItemSearch extends AuthItem
     public function rules()
     {
         return [
-            [['item_id', 'type', 'rule_id'], 'integer'],
-            [['name', 'description', 'data', 'created_at', 'updated_at'], 'safe'],
+            [['name', 'description', 'rule_name', 'data', 'created_at', 'updated_at'], 'safe'],
+            [['type'], 'integer'],
         ];
     }
 
@@ -56,15 +56,14 @@ class AuthItemSearch extends AuthItem
         }
 
         $query->andFilterWhere([
-            'item_id' => $this->item_id,
             'type' => $this->type,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'rule_id' => $this->rule_id,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['like', 'rule_name', $this->rule_name])
             ->andFilterWhere(['like', 'data', $this->data]);
 
         return $dataProvider;

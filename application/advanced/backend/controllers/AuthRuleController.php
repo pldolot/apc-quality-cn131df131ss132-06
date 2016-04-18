@@ -43,7 +43,7 @@ class AuthRuleController extends Controller
 
     /**
      * Displays a single AuthRule model.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      */
     public function actionView($id)
@@ -63,7 +63,7 @@ class AuthRuleController extends Controller
         $model = new AuthRule();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->rule_id]);
+            return $this->redirect(['view', 'id' => $model->name]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -74,7 +74,7 @@ class AuthRuleController extends Controller
     /**
      * Updates an existing AuthRule model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      */
     public function actionUpdate($id)
@@ -82,7 +82,7 @@ class AuthRuleController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->rule_id]);
+            return $this->redirect(['view', 'id' => $model->name]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -93,7 +93,7 @@ class AuthRuleController extends Controller
     /**
      * Deletes an existing AuthRule model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      */
     public function actionDelete($id)
@@ -106,7 +106,7 @@ class AuthRuleController extends Controller
     /**
      * Finds the AuthRule model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param string $id
      * @return AuthRule the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

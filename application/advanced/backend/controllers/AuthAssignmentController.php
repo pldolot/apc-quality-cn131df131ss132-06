@@ -43,7 +43,7 @@ class AuthAssignmentController extends Controller
 
     /**
      * Displays a single AuthAssignment model.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      */
     public function actionView($id)
@@ -63,7 +63,7 @@ class AuthAssignmentController extends Controller
         $model = new AuthAssignment();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->assignment_id]);
+            return $this->redirect(['view', 'id' => $model->item_name]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -74,7 +74,7 @@ class AuthAssignmentController extends Controller
     /**
      * Updates an existing AuthAssignment model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      */
     public function actionUpdate($id)
@@ -82,7 +82,7 @@ class AuthAssignmentController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->assignment_id]);
+            return $this->redirect(['view', 'id' => $model->item_name]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -93,7 +93,7 @@ class AuthAssignmentController extends Controller
     /**
      * Deletes an existing AuthAssignment model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      */
     public function actionDelete($id)
@@ -106,7 +106,7 @@ class AuthAssignmentController extends Controller
     /**
      * Finds the AuthAssignment model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param string $id
      * @return AuthAssignment the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

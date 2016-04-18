@@ -18,7 +18,6 @@ class AuthRuleSearch extends AuthRule
     public function rules()
     {
         return [
-            [['rule_id'], 'integer'],
             [['name', 'data', 'created_at', 'updated_at'], 'safe'],
         ];
     }
@@ -56,7 +55,6 @@ class AuthRuleSearch extends AuthRule
         }
 
         $query->andFilterWhere([
-            'rule_id' => $this->rule_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);

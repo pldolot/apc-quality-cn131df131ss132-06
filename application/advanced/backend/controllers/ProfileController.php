@@ -8,7 +8,8 @@ use common\models\ProfileSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\web\ForbiddenHttpException;
+use yii\filters\AccessControl;
 /**
  * ProfileController implements the CRUD actions for Profile model.
  */
@@ -17,6 +18,18 @@ class ProfileController extends Controller
     public function behaviors()
     {
         return [
+            'access'=> [
+
+                'class'=>AccessControl::classname(),
+                'only'=>['create','update'],
+                'rules'=>[
+                    [
+                        'allow'=>true,
+                        'roles'=>['@']
+                    ],
+                ]
+            ],
+
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -60,7 +73,10 @@ class ProfileController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Profile();
+        
+        if(Yii::$app->user->can('create-profile')){
+
+            $model = new Profile();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->profile_id]);
@@ -69,6 +85,11 @@ class ProfileController extends Controller
                 'model' => $model,
             ]);
         }
+
+        }else{
+            throw new ForbiddenHttpException;
+        }
+        
     }
 
     /**

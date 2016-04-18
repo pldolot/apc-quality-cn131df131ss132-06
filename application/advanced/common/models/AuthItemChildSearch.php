@@ -18,7 +18,7 @@ class AuthItemChildSearch extends AuthItemChild
     public function rules()
     {
         return [
-            [['child_id', 'item_id'], 'integer'],
+            [['parent', 'child'], 'safe'],
         ];
     }
 
@@ -54,10 +54,8 @@ class AuthItemChildSearch extends AuthItemChild
             return $dataProvider;
         }
 
-        $query->andFilterWhere([
-            'child_id' => $this->child_id,
-            'item_id' => $this->item_id,
-        ]);
+        $query->andFilterWhere(['like', 'parent', $this->parent])
+            ->andFilterWhere(['like', 'child', $this->child]);
 
         return $dataProvider;
     }

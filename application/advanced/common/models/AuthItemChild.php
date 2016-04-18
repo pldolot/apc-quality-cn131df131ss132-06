@@ -7,10 +7,11 @@ use Yii;
 /**
  * This is the model class for table "auth_item_child".
  *
- * @property integer $child_id
- * @property integer $item_id
+ * @property string $parent
+ * @property string $child
  *
- * @property AuthItem $item
+ * @property AuthItem $parent0
+ * @property AuthItem $child0
  */
 class AuthItemChild extends \yii\db\ActiveRecord
 {
@@ -28,8 +29,8 @@ class AuthItemChild extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['item_id'], 'required'],
-            [['item_id'], 'integer']
+            [['parent', 'child'], 'required'],
+            [['parent', 'child'], 'string', 'max' => 64]
         ];
     }
 
@@ -39,16 +40,24 @@ class AuthItemChild extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'child_id' => 'Child ID',
-            'item_id' => 'Item ID',
+            'parent' => 'Parent',
+            'child' => 'Child',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getItem()
+    public function getParent0()
     {
-        return $this->hasOne(AuthItem::className(), ['item_id' => 'item_id']);
+        return $this->hasOne(AuthItem::className(), ['name' => 'parent']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getChild0()
+    {
+        return $this->hasOne(AuthItem::className(), ['name' => 'child']);
     }
 }

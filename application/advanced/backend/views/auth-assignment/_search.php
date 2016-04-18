@@ -15,13 +15,9 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'assignment_id') ?>
-
-    <?= $form->field($model, 'created_at') ?>
-
     <?= $form->field($model, 'item_name') ?>
 
-    <?= $form->field($model, 'item_id') ?>
+    <?= $form->field($model, 'created_at') ?>
 
     <?= $form->field($model, 'user_id') ?>
 

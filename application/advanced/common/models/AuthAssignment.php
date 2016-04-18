@@ -7,13 +7,11 @@ use Yii;
 /**
  * This is the model class for table "auth_assignment".
  *
- * @property integer $assignment_id
- * @property string $created_at
  * @property string $item_name
- * @property integer $item_id
+ * @property string $created_at
  * @property integer $user_id
  *
- * @property AuthItem $item
+ * @property AuthItem $itemName
  */
 class AuthAssignment extends \yii\db\ActiveRecord
 {
@@ -31,10 +29,10 @@ class AuthAssignment extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['item_name', 'user_id'], 'required'],
             [['created_at'], 'safe'],
-            [['item_id', 'user_id'], 'required'],
-            [['item_id', 'user_id'], 'integer'],
-            [['item_name'], 'string', 'max' => 45]
+            [['user_id'], 'integer'],
+            [['item_name'], 'string', 'max' => 64]
         ];
     }
 
@@ -44,10 +42,8 @@ class AuthAssignment extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'assignment_id' => 'Assignment ID',
-            'created_at' => 'Created At',
             'item_name' => 'Item Name',
-            'item_id' => 'Item ID',
+            'created_at' => 'Created At',
             'user_id' => 'User ID',
         ];
     }
@@ -55,8 +51,8 @@ class AuthAssignment extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getItem()
+    public function getItemName()
     {
-        return $this->hasOne(AuthItem::className(), ['item_id' => 'item_id']);
+        return $this->hasOne(AuthItem::className(), ['name' => 'item_name']);
     }
 }
