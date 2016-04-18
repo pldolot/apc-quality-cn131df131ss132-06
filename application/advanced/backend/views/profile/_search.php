@@ -15,16 +15,9 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'profile_id') ?>
+    <?= $form->field($model, 'globalSearch') ?>
 
-    <?= $form->field($model, 'profilenumber') ?>
-
-    <?= $form->field($model, 'phonenumber') ?>
-
-    <?= $form->field($model, 'profile_firstname') ?>
-
-    <?= $form->field($model, 'profile_middlename') ?>
-
+    
     <?php // echo $form->field($model, 'profile_lastname') ?>
 
     <?php // echo $form->field($model, 'profile_picture') ?>

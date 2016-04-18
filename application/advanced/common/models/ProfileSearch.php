@@ -15,11 +15,15 @@ class ProfileSearch extends Profile
     /**
      * @inheritdoc
      */
+    public $globalSearch;
+
+
+
     public function rules()
     {
         return [
             [['profile_id', 'precinct_id', 'type_id', 'employee_id'], 'integer'],
-            [['profilenumber', 'phonenumber', 'profile_firstname', 'profile_middlename', 'profile_lastname', 'profile_picture', 'gsis', 'sss', 'mothers_maiden_name', 'sex'], 'safe'],
+            [['profilenumber','globalSearch', 'phonenumber', 'profile_firstname', 'profile_middlename', 'profile_lastname', 'profile_picture', 'gsis', 'sss', 'mothers_maiden_name', 'sex'], 'safe'],
         ];
     }
 
@@ -62,16 +66,16 @@ class ProfileSearch extends Profile
             'employee_id' => $this->employee_id,
         ]);
 
-        $query->andFilterWhere(['like', 'profilenumber', $this->profilenumber])
-            ->andFilterWhere(['like', 'phonenumber', $this->phonenumber])
-            ->andFilterWhere(['like', 'profile_firstname', $this->profile_firstname])
-            ->andFilterWhere(['like', 'profile_middlename', $this->profile_middlename])
-            ->andFilterWhere(['like', 'profile_lastname', $this->profile_lastname])
-            ->andFilterWhere(['like', 'profile_picture', $this->profile_picture])
-            ->andFilterWhere(['like', 'gsis', $this->gsis])
-            ->andFilterWhere(['like', 'sss', $this->sss])
-            ->andFilterWhere(['like', 'mothers_maiden_name', $this->mothers_maiden_name])
-            ->andFilterWhere(['like', 'sex', $this->sex]);
+        $query->orFilterWhere(['like', 'profilenumber', $this->globalSearch])
+            ->orFilterWhere(['like', 'phonenumber', $this->globalSearch])
+            ->orFilterWhere(['like', 'profile_firstname', $this->globalSearch])
+            ->orFilterWhere(['like', 'profile_middlename', $this->globalSearch])
+            ->orFilterWhere(['like', 'profile_lastname', $this->globalSearch])
+            ->orFilterWhere(['like', 'profile_picture', $this->globalSearch])
+            ->orFilterWhere(['like', 'gsis', $this->globalSearch])
+            ->orFilterWhere(['like', 'sss', $this->globalSearch])
+            ->orFilterWhere(['like', 'mothers_maiden_name', $this->globalSearch])
+            ->orFilterWhere(['like', 'sex', $this->globalSearch]);
 
         return $dataProvider;
     }
