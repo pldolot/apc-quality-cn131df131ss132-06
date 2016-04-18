@@ -19,6 +19,9 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 't_date_time')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
 
+    <?= $form->field($model, 'case_id')->hiddenInput(['value'=>Yii::$app->request->get('id')])->label("") ?>
+
+<!--  
     <?php
         $scccase=SccCase::find()->all();
 
@@ -27,10 +30,12 @@ use yii\helpers\ArrayHelper;
 
 
     ?>
+-->
+    <?= $form->field($model, 'ticket_name')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
 
     <?= $form->field($model, 'ticket_note')->textarea(['rows' => 6, 'style' => 'width: 300px']) ?>
 
-    <?= $form->field($model, 'ticket_name')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
+    
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

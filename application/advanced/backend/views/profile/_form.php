@@ -2,6 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use common\models\Employee;
+use common\models\Type;
+use common\models\Precinct;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Profile */
@@ -60,9 +64,33 @@ use yii\widgets\ActiveForm;
 </div>
 <div class="column2">
     <?= $form->field($model, 'profilenumber')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
-    <?= $form->field($model, 'employee_id')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
-    <?= $form->field($model, 'type_id')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
-    <?= $form->field($model, 'precinct_id')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
+    
+    <?php
+        $employee=Employee::find()->all();
+
+        $listData=ArrayHelper::map($employee,'employee_id','firstname');
+        echo $form->field($model, 'employee_id')->dropDownList($listData,['prompt'=>'Select Employee', 'style' => 'width: 300px']);
+
+
+    ?>
+    
+    <?php
+        $type=Type::find()->all();
+
+        $listData=ArrayHelper::map($type,'type_id','type_name');
+        echo $form->field($model, 'type_id')->dropDownList($listData,['prompt'=>'Select position', 'style' => 'width: 300px']);
+
+
+    ?>
+    
+    <?php
+        $precinct=Precinct::find()->all();
+
+        $listData=ArrayHelper::map($precinct,'precinct_id','precinctnumber');
+        echo $form->field($model, 'precinct_id')->dropDownList($listData,['prompt'=>'Select your precinct', 'style' => 'width: 300px']);
+
+
+    ?>
 </div>
 <div class="column3">
     <?= $form->field($model, 'mothers_maiden_name')->textInput(['maxlength' => true, 'style' => 'width: 300px' ]) ?>    

@@ -18,18 +18,18 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'casenumber')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
 
    
-
+    <?= $form->field($model, 'profile_id')->hiddenInput(['value'=>Yii::$app->request->get('id')])->label("") ?>
     
-    <?php
+    <!--<?php
     	$profile=Profile::find()->all();
 
     	$listData=ArrayHelper::map($profile,'profile_id','profile_lastname');
     	echo $form->field($model, 'profile_id')->dropDownList($listData,['prompt'=>'Select Profile', 'style' => 'width: 300px']);
 
 
-    ?>
+    ?>-->
 
-
+     
     
     <?php
     	$category=Category::find()->all();
