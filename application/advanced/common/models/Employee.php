@@ -15,11 +15,10 @@ use Yii;
  * @property integer $position_id
  * @property integer $user_id
 
-<<<<<<< HEAD
+
  * @property string $sex
 
-=======
->>>>>>> 2c53e3d85eea73a6b93c549ac06d6696fba3bd97
+
  * @property string $employee_status
  *
  * @property CaseHasCaseStatus[] $caseHasCaseStatuses
@@ -46,11 +45,10 @@ class Employee extends \yii\db\ActiveRecord
 
             [['id_number', 'position_id', 'sex', 'user_id', 'employee_status'], 'required'],
 
-<<<<<<< HEAD
+
             [['id_number', 'position_id', 'user_id', 'sex', 'employee_status'], 'required'],
 
-=======
->>>>>>> 2c53e3d85eea73a6b93c549ac06d6696fba3bd97
+
             [['position_id', 'user_id'], 'integer'],
             [['sex', 'employee_status'], 'string'],
             [['id_number'], 'string', 'max' => 15],
@@ -73,13 +71,12 @@ class Employee extends \yii\db\ActiveRecord
              'sex' => 'Sex',
             'position_id' => 'Position ',
             'user_id' => 'User ID',
-<<<<<<< HEAD
+
 
 
             'sex' => 'Sex',
 
-=======
->>>>>>> 2c53e3d85eea73a6b93c549ac06d6696fba3bd97
+
             'employee_status' => 'Employee Status',
         ];
     }

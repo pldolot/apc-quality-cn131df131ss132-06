@@ -56,33 +56,22 @@ use yii\helpers\ArrayHelper;
 
 
     
-<div class="column1">
+    <div class="column1">
     <?= $form->field($model, 'id_number')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
     <?= $form->field($model, 'lastname')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
     <?php
         $position=Position::find()->all();
 
         $listData=ArrayHelper::map($position,'position_id','position_name');
-        echo $form->field($model, 'position_id')->dropDownList($listData,['prompt'=>'Select Position', 'style' => 'width: 300px']);
-
-
-<<<<<<< HEAD
-
-    <?= $form->field($model, 'employee_status')->dropDownList([ 'Active' => 'Active', 'Inactive' => 'Inactive', ], ['prompt' => '']) ?>
-
-    <div class="form-group">
-
-=======
-
->>>>>>> 2c53e3d85eea73a6b93c549ac06d6696fba3bd97
-    ?>
-
-
-<div class="column2">
+        echo $form->field($model, 'position_id')->dropDownList($listData,['prompt'=>'Select Position', 'style' => 'width: 300px']); ?>
+    </div>
+    
+    <div class="column2">
     <?= $form->field($model, 'user_id')->textInput(['style' => 'width: 300px']) ?>
     <?= $form->field($model, 'firstname')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
     <?= $form->field($model, 'employee_status')->dropDownList([ 'Active' => 'Active', 'Inactive' => 'Inactive', ], ['prompt' => 'Select status', 'style' => 'width: 300px']) ?>    
-</div>
+    </div>
+
 <div class="column3">
     <?= $form->field($model, 'sex')->dropDownList([ 'Male' => 'Male', 'Female' => 'Female', ], ['prompt' => 'Select sex', 'style' => 'width: 300px']) ?>
     <?= $form->field($model, 'middlename')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>

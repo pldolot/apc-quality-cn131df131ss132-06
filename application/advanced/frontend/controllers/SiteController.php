@@ -84,15 +84,7 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
-    /**
-     * Displays homepage.
-     *
-     * @return mixed
-     */
-    public function actionAgent()
-    {
-        return $this->render('agent');
-    }
+    
 
     
 
