@@ -32,6 +32,9 @@ class Profile extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+
+    public $file;
+
     public static function tableName()
     {
         return 'profile';
@@ -49,6 +52,7 @@ class Profile extends \yii\db\ActiveRecord
             [['profilenumber', 'profile_firstname', 'profile_middlename', 'profile_lastname', 'gsis', 'sss', 'mothers_maiden_name'], 'string', 'max' => 45],
             [['phonenumber'], 'string', 'max' => 15],
             [['profilenumber'], 'unique'],
+            [['file'], 'file'],
             [['phonenumber'], 'unique'],
             [['gsis'], 'unique'],
             [['sss'], 'unique']
