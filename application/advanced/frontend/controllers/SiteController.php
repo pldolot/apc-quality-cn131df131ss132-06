@@ -85,6 +85,19 @@ class SiteController extends Controller
     }
 
     /**
+     * Displays homepage.
+     *
+     * @return mixed
+     */
+    public function actionAgent()
+    {
+        return $this->render('agent');
+    }
+
+    
+
+
+    /**
      * Logs in a user.
      *
      * @return mixed

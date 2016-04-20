@@ -14,10 +14,9 @@ use Yii;
  * @property string $middlename
  * @property integer $position_id
  * @property integer $user_id
-<<<<<<< HEAD
-=======
+
  * @property string $sex
->>>>>>> d033b540ff923d36abca6b8ad0194be18cb39192
+
  * @property string $employee_status
  *
  * @property CaseHasCaseStatus[] $caseHasCaseStatuses
@@ -41,11 +40,11 @@ class Employee extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-<<<<<<< HEAD
+
             [['id_number', 'position_id', 'sex', 'user_id', 'employee_status'], 'required'],
-=======
+
             [['id_number', 'position_id', 'user_id', 'sex', 'employee_status'], 'required'],
->>>>>>> d033b540ff923d36abca6b8ad0194be18cb39192
+
             [['position_id', 'user_id'], 'integer'],
             [['sex', 'employee_status'], 'string'],
             [['id_number'], 'string', 'max' => 15],
@@ -67,10 +66,10 @@ class Employee extends \yii\db\ActiveRecord
             'middlename' => 'Middlename',
             'position_id' => 'Position ID',
             'user_id' => 'User ID',
-<<<<<<< HEAD
-=======
+
+
             'sex' => 'Sex',
->>>>>>> d033b540ff923d36abca6b8ad0194be18cb39192
+
             'employee_status' => 'Employee Status',
         ];
     }
