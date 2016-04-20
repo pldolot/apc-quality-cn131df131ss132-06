@@ -74,6 +74,7 @@ class EmployeeSearch extends Employee
             ->orFilterWhere(['like', 'middlename', $this->globalSearch])
             ->orFilterWhere(['like', 'sex', $this->globalSearch])
             ->orFilterWhere(['like', 'employee_status', $this->globalSearch]);
+<<<<<<< HEAD
 
         $query->andFilterWhere(['like', 'id_number', $this->id_number])
             ->andFilterWhere(['like', 'firstname', $this->firstname])
@@ -82,6 +83,8 @@ class EmployeeSearch extends Employee
             ->andFilterWhere(['like', 'sex', $this->sex])
             ->andFilterWhere(['like', 'employee_status', $this->employee_status]);
 
+=======
+>>>>>>> 2c53e3d85eea73a6b93c549ac06d6696fba3bd97
 
         return $dataProvider;
     }
