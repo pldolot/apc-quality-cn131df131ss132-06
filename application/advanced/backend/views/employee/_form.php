@@ -26,6 +26,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'user_id')->textInput() ?>
 
+    <?= $form->field($model, 'employee_status')->dropDownList([ 'Active' => 'Active', 'Inactive' => 'Inactive', ], ['prompt' => '']) ?>
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
