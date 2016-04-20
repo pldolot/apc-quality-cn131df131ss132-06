@@ -13,12 +13,12 @@ use Yii;
  * @property string $lastname
  * @property string $middlename
  * @property integer $position_id
- * @property string $sex
  * @property integer $user_id
+ * @property string $sex
+ * @property string $employee_status
  *
  * @property CaseHasCaseStatus[] $caseHasCaseStatuses
  * @property Position $position
- * @property User $user
  * @property Profile[] $profiles
  * @property TicketHasTicketStatus[] $ticketHasTicketStatuses
  */
@@ -38,9 +38,9 @@ class Employee extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_number', 'position_id', 'sex', 'user_id'], 'required'],
+            [['id_number', 'position_id', 'user_id', 'sex', 'employee_status'], 'required'],
             [['position_id', 'user_id'], 'integer'],
-            [['sex'], 'string'],
+            [['sex', 'employee_status'], 'string'],
             [['id_number'], 'string', 'max' => 15],
             [['firstname', 'lastname', 'middlename'], 'string', 'max' => 45],
             [['id_number'], 'unique']
@@ -59,8 +59,9 @@ class Employee extends \yii\db\ActiveRecord
             'lastname' => 'Lastname',
             'middlename' => 'Middlename',
             'position_id' => 'Position ID',
-            'sex' => 'Sex',
             'user_id' => 'User ID',
+            'sex' => 'Sex',
+            'employee_status' => 'Employee Status',
         ];
     }
 
@@ -78,14 +79,6 @@ class Employee extends \yii\db\ActiveRecord
     public function getPosition()
     {
         return $this->hasOne(Position::className(), ['position_id' => 'position_id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUser()
-    {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 
     /**

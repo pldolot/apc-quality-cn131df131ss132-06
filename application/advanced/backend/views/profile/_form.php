@@ -65,14 +65,7 @@ use yii\helpers\ArrayHelper;
 <div class="column2">
     <?= $form->field($model, 'profilenumber')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
     
-    <?php
-        $employee=Employee::find()->all();
-
-        $listData=ArrayHelper::map($employee,'employee_id','firstname');
-        echo $form->field($model, 'employee_id')->dropDownList($listData,['prompt'=>'Select Employee', 'style' => 'width: 300px']);
-
-
-    ?>
+    
     
     <?php
         $type=Type::find()->all();
