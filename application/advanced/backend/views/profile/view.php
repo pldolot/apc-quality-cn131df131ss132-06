@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'profile_id',
+            //'profile_id',
             'profilenumber',
             'phonenumber',
             'profile_firstname',
