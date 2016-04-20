@@ -66,15 +66,10 @@ use yii\helpers\ArrayHelper;
         echo $form->field($model, 'position_id')->dropDownList($listData,['prompt'=>'Select Position', 'style' => 'width: 300px']);
 
 
-<<<<<<< HEAD
-    <?= $form->field($model, 'employee_status')->dropDownList([ 'Active' => 'Active', 'Inactive' => 'Inactive', ], ['prompt' => '']) ?>
 
-    <div class="form-group">
-=======
     ?>
-    
-    
-</div>
+
+
 <div class="column2">
     <?= $form->field($model, 'user_id')->textInput(['style' => 'width: 300px']) ?>
     <?= $form->field($model, 'firstname')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
@@ -86,7 +81,7 @@ use yii\helpers\ArrayHelper;
     
 </div>
     <div class="column4">
->>>>>>> d033b540ff923d36abca6b8ad0194be18cb39192
+
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
