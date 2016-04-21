@@ -53,17 +53,17 @@ use yii\helpers\ArrayHelper;
 
 <div class="profile-form">
 
-    <?php $form = ActiveForm::begin(['options'=>['entype'=> 'multipart/form-data']]); ?>
+   
     
     
 
     
 <div class="column1">
-
+    <?php $form = ActiveForm::begin(['options' => ['entype'=> 'multipart/form-data']]); ?>
     <?= $form->field($model, 'profile_lastname')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
     <?= $form->field($model, 'profile_firstname')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
     <?= $form->field($model, 'profile_middlename')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
-    <?= $form->field($model, 'profile_picture')->fileInput(); ?>
+    <?= $form->field($model, 'file')->fileInput(); ?>
     
 
 </div>

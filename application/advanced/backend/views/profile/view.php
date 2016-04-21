@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'profile_firstname',
             'profile_middlename',
             'profile_lastname',
-            'profile_picture',
+            //'profile_picture',
             'gsis',
             'sss',
             'precinct.precinctnumber',

@@ -62,8 +62,17 @@ class SiteController extends Controller
     {
         //$this->layout = 'loginLayout';
         if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
+           return $this->goHome();
         }
+        //if(Yii::app()->user->checkAccess('hrManager',Yii::app()->user->getId())){
+       //     $this->redirect(array('employee/index'));
+       // }else if(Yii::app()->user->checkAccess('registrar',Yii::app()->user->getId())){
+        //    $this->redirect(array('profile/index'));   
+       // }else if(Yii::app()->user->checkAccess('Agent',Yii::app()->user->getId())){
+      //      $this->redirect(array('profile/index'));
+     //   }else if(Yii::app()->user->checkAccess('teamLeader',Yii::app()->user->getId())){
+      //      $this->redirect(array('profile/index'));
+      //  }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {

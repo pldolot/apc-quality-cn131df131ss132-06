@@ -19,10 +19,10 @@ class ProfileController extends Controller
     public function behaviors()
     {
         return [
-            'access'=> [
+                'access'=> [
 
                 'class'=>AccessControl::classname(),
-                'only'=>['create','update'],
+                'only'=>['index','create','update','view'],
                 'rules'=>[
                     [
                         'allow'=>true,
@@ -84,11 +84,11 @@ class ProfileController extends Controller
 
         //get the instance of the uploaded file
         $imageName = $model->profile_firstname;
-        $model->file = UploadedFile::getInstance($model,'profile_picture');
-        $model->file->saveAs('uploads/'.$imageName. '.'.$model->file->extension );
+        $model->file = UploadedFile::getInstance($model,'file');
+        $model->file->saveAs( 'uploads/'.$imageName. '.'.$model->file->extension );
 
         //save the path in the db column
-        $model->file = 'uploads/'.$imageName. '.'.$model->file->extension;
+        $model->profile_profile = 'uploads/'.$imageName. '.'.$model->file->extension;
         $model->save();
             return $this->redirect(['view', 'id' => $model->profile_id]);
         } else {

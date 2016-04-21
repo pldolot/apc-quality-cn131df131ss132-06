@@ -17,13 +17,11 @@ class ProfileSearch extends Profile
      */
     public $globalSearch;
 
-
-
     public function rules()
     {
         return [
             [['profile_id', 'precinct_id', 'type_id', 'employee_id'], 'integer'],
-            [['profilenumber','globalSearch', 'phonenumber', 'profile_firstname', 'profile_middlename', 'profile_lastname', 'profile_picture', 'gsis', 'sss', 'mothers_maiden_name', 'sex'], 'safe'],
+            [['profilenumber', 'globalSearch','phonenumber', 'profile_firstname', 'profile_middlename', 'profile_lastname', 'profile_picture', 'gsis', 'sss', 'mothers_maiden_name', 'sex'], 'safe'],
         ];
     }
 
@@ -73,7 +71,7 @@ class ProfileSearch extends Profile
             ->orFilterWhere(['like', 'profile_lastname', $this->globalSearch])
             ->orFilterWhere(['like', 'profile_picture', $this->globalSearch])
             ->orFilterWhere(['like', 'gsis', $this->globalSearch])
-            ->orFilterWhere(['like', 'sss', $this->globalSearch])
+            ->orFilterWhere(['like', 'sss', $this->sss])
             ->orFilterWhere(['like', 'mothers_maiden_name', $this->globalSearch])
             ->orFilterWhere(['like', 'sex', $this->globalSearch]);
 
