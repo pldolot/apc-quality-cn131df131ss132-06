@@ -2,16 +2,15 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use common\models\Precinct;
-use common\models\Type;
 use common\models\Employee;
+use common\models\Type;
+use common\models\Precinct;
 use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Profile */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-
 <style type="text/css">
     
     .column1{
@@ -55,7 +54,7 @@ use yii\helpers\ArrayHelper;
 <div class="profile-form">
 
     <?php $form = ActiveForm::begin(); ?>
-    <?= $form->field($model, 'profile_picture')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
+    <?= $form->field($model, 'profile_picture')->textInput(['maxlength' => true, 'style' => 'width: 300px' ]) ?>
 <div class="column1">
     <?= $form->field($model, 'profile_lastname')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
     <?= $form->field($model, 'profile_firstname')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
@@ -65,9 +64,26 @@ use yii\helpers\ArrayHelper;
 </div>
 <div class="column2">
     <?= $form->field($model, 'profilenumber')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
-    <?= $form->field($model, 'employee_id')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
-    <?= $form->field($model, 'type_id')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
-    <?= $form->field($model, 'precinct_id')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
+    
+    
+    
+    <?php
+        $type=Type::find()->all();
+
+        $listData=ArrayHelper::map($type,'type_id','type_name');
+        echo $form->field($model, 'type_id')->dropDownList($listData,['prompt'=>'Select position', 'style' => 'width: 300px']);
+
+
+    ?>
+    
+    <?php
+        $precinct=Precinct::find()->all();
+
+        $listData=ArrayHelper::map($precinct,'precinct_id','precinctnumber');
+        echo $form->field($model, 'precinct_id')->dropDownList($listData,['prompt'=>'Select your precinct', 'style' => 'width: 300px']);
+
+
+    ?>
 </div>
 <div class="column3">
     <?= $form->field($model, 'mothers_maiden_name')->textInput(['maxlength' => true, 'style' => 'width: 300px' ]) ?>    

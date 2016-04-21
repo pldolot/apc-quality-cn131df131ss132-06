@@ -1,10 +1,10 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
 use common\models\Profile;
 use common\models\Category;
 use yii\helpers\ArrayHelper;
+use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\SccCase */
@@ -15,25 +15,22 @@ use yii\helpers\ArrayHelper;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'casenumber')->textInput(['maxlength' => true , 'style' => 'width:300px']) ?>
+    <?= $form->field($model, 'casenumber')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
 
+   
+    <?= $form->field($model, 'profile_id')->hiddenInput(['value'=>Yii::$app->request->get('id')])->label("") ?>
     
-
-    
-
-    <?php
+    <!--<?php
     	$profile=Profile::find()->all();
 
     	$listData=ArrayHelper::map($profile,'profile_id','profile_lastname');
     	echo $form->field($model, 'profile_id')->dropDownList($listData,['prompt'=>'Select Profile', 'style' => 'width: 300px']);
 
 
-    ?>
+    ?>-->
 
-
+     
     
-
-
     <?php
     	$category=Category::find()->all();
 
@@ -42,6 +39,7 @@ use yii\helpers\ArrayHelper;
 
 
     ?>
+    
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
