@@ -17,8 +17,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'globalSearch') ?>
 
-  
-
+    
     <?php // echo $form->field($model, 'profile_lastname') ?>
 
     <?php // echo $form->field($model, 'profile_picture') ?>

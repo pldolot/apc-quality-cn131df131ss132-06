@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'case_status_id')->textInput() ?>
 
-    <?= $form->field($model, 'case_date_time')->textInput() ?>
+    <?= $form->field($model, 'case_date_time')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'employee_id')->textInput() ?>
 

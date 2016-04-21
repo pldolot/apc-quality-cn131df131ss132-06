@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\ProfileSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Profiles';
+$this->title = 'Registrar';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="profile-index">
@@ -31,10 +31,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'profile_firstname',
             'profile_middlename',
             'profile_lastname',
-            'profile_picture',
-            'gsis',
-            'sss',
-            'precinct_id',
+             'profile_picture',
+             'gsis',
+             'sss',
+             'precinct_id',
             'type_id',
             'employee_id',
             'mothers_maiden_name',

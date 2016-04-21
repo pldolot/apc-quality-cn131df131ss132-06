@@ -15,11 +15,17 @@ class EmployeeSearch extends Employee
     /**
      * @inheritdoc
      */
+    public $globalSearch;
+
+
+
     public function rules()
     {
         return [
             [['employee_id', 'position_id', 'user_id'], 'integer'],
-            [['id_number', 'firstname', 'lastname', 'middlename', 'sex'], 'safe'],
+
+            [['id_number', 'globalSearch','firstname', 'lastname', 'middlename', 'sex', 'employee_status'], 'safe'],
+
         ];
     }
 
@@ -61,11 +67,22 @@ class EmployeeSearch extends Employee
             'user_id' => $this->user_id,
         ]);
 
+
+        $query->orFilterWhere(['like', 'id_number', $this->globalSearch])
+            ->orFilterWhere(['like', 'firstname', $this->globalSearch])
+            ->orFilterWhere(['like', 'lastname', $this->globalSearch])
+            ->orFilterWhere(['like', 'middlename', $this->globalSearch])
+            ->orFilterWhere(['like', 'sex', $this->globalSearch])
+            ->orFilterWhere(['like', 'employee_status', $this->globalSearch]);
+
+
         $query->andFilterWhere(['like', 'id_number', $this->id_number])
             ->andFilterWhere(['like', 'firstname', $this->firstname])
             ->andFilterWhere(['like', 'lastname', $this->lastname])
             ->andFilterWhere(['like', 'middlename', $this->middlename])
-            ->andFilterWhere(['like', 'sex', $this->sex]);
+            ->andFilterWhere(['like', 'sex', $this->sex])
+            ->andFilterWhere(['like', 'employee_status', $this->employee_status]);
+
 
         return $dataProvider;
     }
