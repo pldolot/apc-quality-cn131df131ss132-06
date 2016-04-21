@@ -53,19 +53,24 @@ use yii\helpers\ArrayHelper;
 
 <div class="profile-form">
 
-    <?php $form = ActiveForm::begin(); ?>
-    <?= $form->field($model, 'profile_picture')->textInput(['maxlength' => true, 'style' => 'width: 300px' ]) ?>
+    <?php $form = ActiveForm::begin(['options'=>['entype'=> 'multipart/form-data']]); ?>
+    
+    
+
+    
 <div class="column1">
+
     <?= $form->field($model, 'profile_lastname')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
     <?= $form->field($model, 'profile_firstname')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
     <?= $form->field($model, 'profile_middlename')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
-    <?= $form->field($model, 'sex')->dropDownList([ 'Male' => 'Male', 'Female' => 'Female', ], ['prompt' => 'Select your sex', 'style' => 'width: 300px']) ?>
+    <?= $form->field($model, 'profile_picture')->fileInput(); ?>
+    
 
 </div>
 <div class="column2">
     <?= $form->field($model, 'profilenumber')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
     
-    
+    <?= $form->field($model, 'sex')->dropDownList([ 'Male' => 'Male', 'Female' => 'Female', ], ['prompt' => 'Select your sex', 'style' => 'width: 300px']) ?>
     
     <?php
         $type=Type::find()->all();

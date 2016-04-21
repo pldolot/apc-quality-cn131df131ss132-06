@@ -32,8 +32,7 @@ class Profile extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-
-    public $file;
+    public $profile_picture;
 
     public static function tableName()
     {
@@ -52,7 +51,7 @@ class Profile extends \yii\db\ActiveRecord
             [['profilenumber', 'profile_firstname', 'profile_middlename', 'profile_lastname', 'gsis', 'sss', 'mothers_maiden_name'], 'string', 'max' => 45],
             [['phonenumber'], 'string', 'max' => 15],
             [['profilenumber'], 'unique'],
-            [['file'], 'file'],
+            
             [['phonenumber'], 'unique'],
             [['gsis'], 'unique'],
             [['sss'], 'unique']
@@ -66,17 +65,17 @@ class Profile extends \yii\db\ActiveRecord
     {
         return [
             'profile_id' => 'Profile ID',
-            'profilenumber' => 'Profilenumber',
+            'profilenumber' => 'Profile Number',
             'phonenumber' => 'Phonenumber',
-            'profile_firstname' => 'Profile Firstname',
-            'profile_middlename' => 'Profile Middlename',
-            'profile_lastname' => 'Profile Lastname',
+            'profile_firstname' => 'Firstname',
+            'profile_middlename' => 'Middlename',
+            'profile_lastname' => 'Lastname',
             'profile_picture' => 'Profile Picture',
             'gsis' => 'Gsis',
             'sss' => 'Sss',
-            'precinct_id' => 'Precinct ID',
-            'type_id' => 'Type ID',
-            'employee_id' => 'Employee ID',
+            'precinct_id' => 'Precinct Number',
+            'type_id' => 'Position',
+            'employee_id' => 'Employee Name',
             'mothers_maiden_name' => 'Mothers Maiden Name',
             'sex' => 'Sex',
         ];

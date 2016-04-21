@@ -45,22 +45,13 @@ class Employee extends \yii\db\ActiveRecord
 
             [['id_number', 'position_id', 'sex', 'user_id', 'employee_status'], 'required'],
 
-<<<<<<< HEAD
-
-            [['id_number', 'position_id', 'user_id', 'sex', 'employee_status'], 'required'],
-=======
-
-            [['id_number', 'position_id', 'user_id', 'sex', 'employee_status'], 'required'],
-
 
             [['position_id', 'user_id'], 'integer'],
             [['sex', 'employee_status'], 'string'],
             [['id_number'], 'string', 'max' => 15],
             [['firstname', 'lastname', 'middlename'], 'string', 'max' => 45],
             [['id_number'], 'unique']
-        ];
-    }
->>>>>>> 3df490abfa95f5fc4ff899d318fc610348b40784
+     
 
 ];
 }
@@ -78,16 +69,7 @@ class Employee extends \yii\db\ActiveRecord
              'sex' => 'Sex',
             'position_id' => 'Position ',
             'user_id' => 'User ID',
-<<<<<<< HEAD
-=======
-
-
-
-            'sex' => 'Sex',
-
-
->>>>>>> 3df490abfa95f5fc4ff899d318fc610348b40784
-            'employee_status' => 'Employee Status',
+            'employee_status' => 'Status',
         ];
     }
 
