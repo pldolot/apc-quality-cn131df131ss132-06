@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use common\models\SccCase;
+use yii\helpers\ArrayHelper;
+
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Ticket */
@@ -13,10 +16,24 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'ticketnumber')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
-    <?= $form->field($model, 'ticket_name')->textInput(['maxlength' => true, 'maxlength' => true, 'style' => 'width: 300px']) ?>
-    <?= $form->field($model, 'case_id')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
-    <?= $form->field($model, 'ticket_note')->textarea(['rows' => 6 , 'maxlength' => true, 'style' => 'width: 300px']) ?>
+
     <?= $form->field($model, 't_date_time')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
+
+    <?= $form->field($model, 'case_id')->hiddenInput(['value'=>Yii::$app->request->get('id')])->label("") ?>
+
+<!--  
+    <?php
+        $scccase=SccCase::find()->all();
+
+        $listData=ArrayHelper::map($scccase,'case_id','casenumber');
+        echo $form->field($model, 'case_id')->dropDownList($listData,['prompt'=>'Select Case', 'style' => 'width: 300px']);
+
+
+    ?>
+-->
+    <?= $form->field($model, 'ticket_name')->textInput(['maxlength' => true, 'style' => 'width: 300px']) ?>
+
+    <?= $form->field($model, 'ticket_note')->textarea(['rows' => 6, 'style' => 'width: 300px']) ?>
 
     
 

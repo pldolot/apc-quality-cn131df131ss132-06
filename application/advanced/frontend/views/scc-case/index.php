@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\SccCaseSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Scc Cases';
+$this->title = 'Agent';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="scc-case-index">
@@ -24,15 +24,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
+            [
+                'attribute'=>'profile_id', 'value'=>'profile.profile_firstname',
+
+            ],
+            
 
             'case_id',
             'casenumber',
             'c_date_time',
-            'profile_id',
+            
             'category_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+
+    
 
 </div>
