@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException;
 use yii\filters\AccessControl;
+use yii\web\UploadedFile;
 /**
  * ProfileController implements the CRUD actions for Profile model.
  */
@@ -18,10 +19,10 @@ class ProfileController extends Controller
     public function behaviors()
     {
         return [
-            'access'=> [
+                'access'=> [
 
                 'class'=>AccessControl::classname(),
-                'only'=>['create','update'],
+                'only'=>['index','create','update','view'],
                 'rules'=>[
                     [
                         'allow'=>true,
@@ -78,7 +79,17 @@ class ProfileController extends Controller
 
             $model = new Profile();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+
+
+        //get the instance of the uploaded file
+        $imageName = $model->profile_firstname;
+        $model->file = UploadedFile::getInstance($model,'file');
+        $model->file->saveAs( 'uploads/'.$imageName. '.'.$model->file->extension );
+
+        //save the path in the db column
+        $model->profile_profile = 'uploads/'.$imageName. '.'.$model->file->extension;
+        $model->save();
             return $this->redirect(['view', 'id' => $model->profile_id]);
         } else {
             return $this->render('create', [

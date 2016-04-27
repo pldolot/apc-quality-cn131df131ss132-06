@@ -19,10 +19,10 @@ class SccCaseController extends Controller
     {
         return [
 
-            'access'=> [
+                'access'=> [
 
                 'class'=>AccessControl::classname(),
-                'only'=>['create','update'],
+                'only'=>['index','create','update','view'],
                 'rules'=>[
                     [
                         'allow'=>true,

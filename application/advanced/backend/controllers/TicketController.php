@@ -8,6 +8,7 @@ use common\models\TicketSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * TicketController implements the CRUD actions for Ticket model.
@@ -17,6 +18,19 @@ class TicketController extends Controller
     public function behaviors()
     {
         return [
+                'access'=> [
+
+                'class'=>AccessControl::classname(),
+                'only'=>['index','create','update','view'],
+                'rules'=>[
+                    [
+                        'allow'=>true,
+                        'roles'=>['@']
+                    ],
+                ]
+            ],
+
+
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

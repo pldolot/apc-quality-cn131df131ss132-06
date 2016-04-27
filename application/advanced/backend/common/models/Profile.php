@@ -13,7 +13,7 @@ use Yii;
  * @property string $profile_firstname
  * @property string $profile_middlename
  * @property string $profile_lastname
- * @property resource $profile_picture
+ * @property string $profile_picture
  * @property string $gsis
  * @property string $sss
  * @property integer $precinct_id
@@ -32,7 +32,6 @@ class Profile extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-
     public $file;
 
     public static function tableName()
@@ -47,15 +46,17 @@ class Profile extends \yii\db\ActiveRecord
     {
         return [
             [['profilenumber', 'phonenumber', 'type_id', 'employee_id', 'mothers_maiden_name', 'sex'], 'required'],
-            [['profile_picture', 'sex'], 'string'],
             [['precinct_id', 'type_id', 'employee_id'], 'integer'],
+            [['sex'], 'string'],
             [['profilenumber', 'profile_firstname', 'profile_middlename', 'profile_lastname', 'gsis', 'sss', 'mothers_maiden_name'], 'string', 'max' => 45],
             [['phonenumber'], 'string', 'max' => 15],
+            [['file'],'file'],
+            [['profile_picture'], 'string', 'max' => 100],
             [['profilenumber'], 'unique'],
-            [['file'], 'file'],
             [['phonenumber'], 'unique'],
             [['gsis'], 'unique'],
-            [['sss'], 'unique']
+            [['sss'], 'unique'],
+            
         ];
     }
 
@@ -66,19 +67,21 @@ class Profile extends \yii\db\ActiveRecord
     {
         return [
             'profile_id' => 'Profile ID',
-            'profilenumber' => 'Profilenumber',
+            'profilenumber' => 'Profile Number',
             'phonenumber' => 'Phonenumber',
-            'profile_firstname' => 'Profile Firstname',
-            'profile_middlename' => 'Profile Middlename',
-            'profile_lastname' => 'Profile Lastname',
-            'profile_picture' => 'Profile Picture',
-            'gsis' => 'Gsis',
-            'sss' => 'Sss',
-            'precinct_id' => 'Precinct ID',
-            'type_id' => 'Type ID',
+            'profile_firstname' => 'Firstname',
+            'profile_middlename' => 'Middlename',
+            'profile_lastname' => 'Lastname',
+            'profile_picture'=> 'profile_picture',
+            'gsis' => 'GSIS',
+            'sss' => 'SSS',
+            'precinct_id' => 'Precinct Number',
+            'type_id' => 'Position',
             'employee_id' => 'Employee ID',
             'mothers_maiden_name' => 'Mothers Maiden Name',
             'sex' => 'Sex',
+            'file'=> 'Profile Picture',
+
         ];
     }
 

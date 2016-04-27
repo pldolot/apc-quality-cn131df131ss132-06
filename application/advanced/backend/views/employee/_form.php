@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use common\models\Position;
+use common\models\User;
 use yii\helpers\ArrayHelper;
 
 
