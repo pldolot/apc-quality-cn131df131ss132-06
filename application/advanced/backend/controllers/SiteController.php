@@ -68,6 +68,8 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    
+
     public function actionLogin()
     {
         //$this->layout = 'loginLayout';
@@ -92,11 +94,10 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
-    public function actionOperation()
-    {
-        
-
     
+    public function actionOperations()
+    {
+        return $this->render('operations');
     }
 
 
@@ -168,5 +169,6 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
 
 }
