@@ -18,7 +18,7 @@ class SccCaseSearch extends SccCase
     public function rules()
     {
         return [
-            [['case_id', 'profile_id', 'category_id'], 'integer'],
+            [['case_id', 'profile_id', 'category_id', 'issue_id'], 'integer'],
             [['casenumber', 'c_date_time'], 'safe'],
         ];
     }
@@ -60,6 +60,7 @@ class SccCaseSearch extends SccCase
             'c_date_time' => $this->c_date_time,
             'profile_id' => $this->profile_id,
             'category_id' => $this->category_id,
+            'issue_id' => $this->issue_id,
         ]);
 
         $query->andFilterWhere(['like', 'casenumber', $this->casenumber]);

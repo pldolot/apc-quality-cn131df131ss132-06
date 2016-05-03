@@ -3,13 +3,12 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Ticket;
 use common\models\SccCase;
 use common\models\SccCaseSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
+
 /**
  * SccCaseController implements the CRUD actions for SccCase model.
  */
@@ -18,19 +17,6 @@ class SccCaseController extends Controller
     public function behaviors()
     {
         return [
-
-                'access'=> [
-
-                'class'=>AccessControl::classname(),
-                'only'=>['index','create','update','view'],
-                'rules'=>[
-                    [
-                        'allow'=>true,
-                        'roles'=>['@']
-                    ],
-                ]
-            ],
-
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -49,19 +35,10 @@ class SccCaseController extends Controller
         $searchModel = new SccCaseSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        
-       
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-
-            
-
-            
-            
         ]);
-
-        
     }
 
     /**
@@ -71,15 +48,8 @@ class SccCaseController extends Controller
      */
     public function actionView($id)
     {
-        
-        
-
         return $this->render('view', [
-
             'model' => $this->findModel($id),
-            
-
-            
         ]);
     }
 
@@ -91,16 +61,14 @@ class SccCaseController extends Controller
     public function actionCreate()
     {
         $model = new SccCase();
-       
 
-        if ($model->load(Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post()) )  {
             $model->c_date_time = date('Y-m-d h:m:s ');
             $model->save();
             return $this->redirect(['view', 'id' => $model->case_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                
             ]);
         }
     }
