@@ -36,7 +36,6 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'Administration', 'url' => ['/administration/index']],
         ['label' => 'BEI/BOC', 'url' => ['/profile/index']],
         ['label' => 'Employee', 'url' => ['/employee/index']],
     ];
