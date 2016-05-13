@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Profile */
@@ -39,5 +40,22 @@ $this->params['breadcrumbs'][] = $this->title;
             'sex',
         ],
     ]) ?>
+
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'case_id',
+            'casenumber',
+            'c_date_time',
+            'profile_id',
+            'category_id',
+            // 'issue_id',
+
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
 
 </div>
