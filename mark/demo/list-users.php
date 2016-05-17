@@ -82,8 +82,8 @@
                 <div class="row">
                     <div class="span7">
                         <header class="page-header">
-                            <h3>BEI/BOC Profile<br/>
-                                <small>Profile's List</small>
+                            <h3>Employee<br/>
+                                <small>User's List</small>
                             </h3>
                         </header>
                     </div>
@@ -91,7 +91,7 @@
                         <ul class="nav nav-pills">
                             <li>
                                 
-                                    <a href="bei-boc-form.php" rel="tooltip" data-placement="left" title="Create New BEI/BOC Profile">
+                                    <a href="user-form.php" rel="tooltip" data-placement="left" title="Create New User">
                                         <i class="icon-group icon-large"></i>
                                     </a>
                                 
@@ -107,7 +107,7 @@
                 <div class="span4">
                     <div class="blockoff-right">
                         <ul id="person-list" class="nav nav-list">
-                            <li class="nav-header">BEI/BOC</li>
+                            <li class="nav-header">People</li>
                            
                                 
                             </li>
@@ -272,5 +272,5 @@
         });
     </script>
 
-    </body>
+	</body>
 </html>

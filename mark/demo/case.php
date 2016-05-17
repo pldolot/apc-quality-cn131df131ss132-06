@@ -68,7 +68,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="user.php">
+                                    <a href="list-users.php">
                                         <i class="icon-user icon-large"></i>Users
                                     </a>
                                 </li>

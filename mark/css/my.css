@@ -1,0 +1,21 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+
+.one{
+	width:200px;
+	height:200px;
+	position:absolute;
+	border:1px solid black;
+}
+
+.two{
+	width:200px;
+	height:200px;
+
+
+	position: absolute;
+	
+	border:1px solid black;
+}

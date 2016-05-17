@@ -67,7 +67,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="user.php">
+                                    <a href="list-users.php">
                                         <i class="icon-user icon-large"></i>Users
                                     </a>
                                 </li>
@@ -186,14 +186,14 @@
                                 </div>
                                
                                 <div class="control-group ">
-                                    <label class="control-label">Password</label>
+                                    <label class="control-label">Password<span class="required">*</span></label>
                                     <div class="controls">
                                         <input id="new-pass-control" name="newPassword" class="span4" type="password" value="" autocomplete="false">
 
                                     </div>
                                 </div>
                                 <div class="control-group ">
-                                    <label class="control-label">Verify Password</label>
+                                    <label class="control-label">Re-type Password <span class="required">*</span></label>
                                     <div class="controls">
                                         <input id="new-pass-verify-control" name="newPasswordVerification" class="span4" type="password" value="" autocomplete="false">
 

@@ -1,15 +1,9 @@
-<?php
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Case Form</title>
+    <title>Ticket Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="layout" content="main"/>
@@ -120,44 +114,26 @@
                         </p>
                     </div>
                     <div class="row">
-                        <div style="width:900px">
-                            
-                                <legend>User Form</legend><br>
+                        <div id="acct-password-row" class="span7">
+                            <fieldset>
+                                <legend>Ticket Form</legend><br>
 
-                                 
-                                <div class="one">
-                                    <div class="control-group ">
-                                        <label class="control-label">Case Name<span class="required">*</span></label>
-                                        <div class="controls">
-                                            <input id="current-pass-control" name="cname" class="span4" type="text" value="" autocomplete="false">
+                                <div class="control-group ">
+                                    <label class="control-label">Ticket Name<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <input id="current-pass-control" name="tname" class="span4" type="text" value="" autocomplete="false">
 
-                                        </div>
                                     </div>
-                                        <br>
-
-                                    <div class="control-group ">
-                                        <label class="control-label">Case Status<span class="required">*</span></label>
-                                        <div class="controls">
+                                </div>
+                                 
+                                <div class="control-group ">
+                                    <label class="control-label">Ticket Status<span class="required">*</span style="color:red"></label>
+                                    <div class="controls">
                                         <select class="span4">
                                             <option>Select Status</option>
                                             <option>Open</option>
                                             <option>Close</option>
-                                            
-                                        </select>
-                                        
-
-                                        </div>
-                                    </div>
-                                    <br>
-
-                                 <div class="control-group ">
-                                    <label class="control-label">Issue<span class="required">*</span></label>
-                                    <div class="controls">
-                                        <select class="span4">
-                                            <option>Select Issue</option>
-                                            <option>Evironmental</option>
-                                            <option>Technical</option>
-                                           
+                                            <option>Close Unresolve</option>
                                             
                                         </select>
                                         
@@ -165,51 +141,26 @@
                                     </div>
                                 </div>
                                     <br>
-                                <div class"two">
-                                    
-                                        <label class="control-label">Category<span class="required">*</span></label>
-                                        <div class="controls">
-                                            <select class="span4">
-                                                <option>Select Category</option>
-                                                <option>Soft Ware</option>
-                                                <option>Hardware</option>
-                                               
-                                                
-                                            </select>
-                                            
 
-                                        </div>
-                                    
+                                 
                                 
-                                    <br>
+                                
 
-                                    
-                                        <label class="control-label">Sub-Category<span class="required">*</span></label>
-                                        <div class="controls">
-                                            <select class="span4">
-                                                <option>Select Sub-Category</option>
-                                                <option>No Boot</option>
-                                                <option>USB Port Broker</option>
-                                               
-                                                
-                                            </select>
-                                            
+                                <div class="control-group ">
+                                    <label class="control-label">Ticket Notes<span class="required">*</span></label>
+                                    <div class="controls">
+                                        
+                                        <textarea rows="10" style="width:500px">
 
-                                        </div>
+                                        </textarea>
                                     </div>
-                            </div>
-                                    <br>
-
-                                
-                                
-                            
+                                </div>
+                            </fieldset>
                         </div>
                         
                     </div>
-
-
                     <footer id="submit-actions" class="form-actions">
-                        <button id="submit-button" type="submit" class="btn btn-primary" name="action" value="CONFIRM">Save</button>
+                        <button id="submit-button" type="submit" class="btn btn-primary" Status="action" value="CONFIRM">Save</button>
                         <button type="submit" class="btn" name="action" value="CANCEL">Cancel</button>
                     </footer>
                 </div>
